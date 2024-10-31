@@ -1,0 +1,95 @@
+.carousel-image{
+    height: 80vh !important;
+    object-fit:cover;
+}
+.slide-label{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    transform: translateY(-40%);
+    width: 45vw;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.slide-label h1{
+    font-size: 4rem;
+    color: var(--font-color);
+    text-transform: uppercase;
+    font-weight: 300;
+    line-height: 80px;
+    margin-top: 20px;
+}
+.slide-label h3{
+    font-size: 1.6rem;
+    color: var(--font-color);
+    font-weight: 200;
+}
+.carousel-container span, .carousel-control-next, .carousel-control-prev{
+    display: none;
+}
+.carousel-link{
+    color: var(--font-color);
+}
+.carousel-btn{
+    background-color: var(--fifth-color);
+    width: 23vw;
+    padding: 10px;
+    border: solid 1px transparent;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    transition: .3s ease-in-out;
+}
+.carousel-btn:hover{
+    background-color: transparent;
+    border: solid 1px var(--font-color);
+}
+.carousel-indicators button{
+    background-color: var(--font-color) !important;
+    border-radius: 50% !important;
+    height: 10px !important;
+    width: 10px !important;
+    margin-left: 10px !important;
+}
+@media screen and (max-width: 1550px){
+    .carousel-image{
+        height: 90vh !important;
+    }
+    .slide-label h1{
+        font-size: 2rem;
+        line-height: 45px;
+    }
+    .slide-label h3{
+        font-size: 1.1rem;
+    }
+    .carousel-btn{
+        width: 30vw;
+        font-size: .9rem;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .carousel-image{
+        object-fit: cover;
+        height: 80vh !important;
+    }
+    .slide-label{
+        left: 0;
+        top: 0;
+        transform: translateX(0);
+        transform: translateY(0);
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    .carousel-btn{
+        width: 60vw;
+    }
+}
+

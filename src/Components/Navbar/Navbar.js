@@ -1,0 +1,246 @@
+import React, { useRef, useState, useEffect } from 'react';
+import './Navbar.css';
+import logo from '../../assets/S-logo.png';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBagShopping, faMagnifyingGlass, faBars, faXmark, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import Header from './Header';
+import { useSelector } from 'react-redux';
+
+const Navbar = ({openedList, setOpenedList}) => {
+  const [inpValue, setInpValue] = useState('');
+  const [openedCategories, setOpenedCategories] = useState({});
+  const [openedSearch, setOpenedSearch] = useState(false);
+  const searchRef = useRef(null);
+  const cartLength = useSelector(state => state.cart.reduce((a,b) => a + b.quantity,0));
+
+  useEffect(() => {
+    const handleResize = () => setOpenedList(false);
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handleFocus = () =>{
+    searchRef.current.focus();
+  }
+
+  const handleLinkClick = (linkName) => {
+    setOpenedCategories((prevOpenedCategories) => ({
+      ...prevOpenedCategories,
+      [linkName]: !prevOpenedCategories[linkName],
+    }));
+  };
+
+  const handleMouseEnter = (linkName) => {
+    if (window.innerWidth >= 819) {
+      setOpenedCategories((prevOpenedCategories) => ({
+        ...prevOpenedCategories,
+        [linkName]: true,
+      }));
+    }
+  };
+
+  const handleMouseLeave = (linkName) => {
+    if (window.innerWidth >= 819) {
+      setTimeout(() => {
+        if (!document.querySelector(`.link-container.${linkName}:hover`) && !document.querySelector(`.list-links.${linkName}:hover`)) {
+          setOpenedCategories((prevOpenedCategories) => ({
+            ...prevOpenedCategories,
+            [linkName]: false,
+          }));
+        }
+      }, 100);
+    }
+  };
+
+  return (
+    <div className='header-navbar'>
+    <Header/>
+    <div className='navbar'>
+      <div className='left-side'>
+        <FontAwesomeIcon
+          className='menu-bars'
+          onClick={() => setOpenedList(true)}
+          icon={faBars}
+        />
+        <Link to={'/'}><img src={logo} alt='soulayma logo' /></Link>
+        <div className={`nav-list ${openedList ? 'visible' : 'hidden-list'}`}>
+          <FontAwesomeIcon
+            className='x-mark'
+            onClick={() => setOpenedList(false)}
+            icon={faXmark}
+          />
+          <div className='auto-list-container'>
+            <div 
+              className={`link-container ${openedCategories.hijabs ? 'clicked-link hijabs' : ''}`}
+              onMouseEnter={() => handleMouseEnter('hijabs')}
+              onMouseLeave={() => handleMouseLeave('hijabs')}
+            >
+              <div className={`list-title ${openedList ? 'title-animation' : ''}`} onClick={() => handleLinkClick('hijabs')}>
+                <p>Hijabs</p>
+                <div className='plus-minus'>
+                <FontAwesomeIcon icon={faPlus} className={!openedCategories.hijabs ? 'opacity' : 'no-opacity'}/>
+                <FontAwesomeIcon icon={faMinus} className={openedCategories.hijabs ? 'opacity' : 'no-opacity'} />
+                </div>
+              </div>
+              {openedCategories.hijabs && (
+                <div
+                  className='list-links' 
+                  onMouseEnter={() => handleMouseEnter('hijabs')}
+                  onMouseLeave={() => handleMouseLeave('hijabs')}
+                >
+                    <Link to={`/shop/all/Hijabs/page/1`} className='navbar-mini-link'>Shop All Hijabs</Link>
+                    <Link to={`/shop/Hijabs/Premium Jersey Hijabs`} className='navbar-mini-link'>Premium Jersey Hijabs</Link>
+                    <Link to={`/shop/Hijabs/Instant Hijabs`} className='navbar-mini-link'>Instant Hijabs</Link>
+                    <Link to={`/shop/Hijabs/Bamboo Ribbed Jersey Hijabs`} className='navbar-mini-link'>Bamboo Ribbed Jersey Hijabs</Link>
+                    <Link to={`/shop/Hijabs/Premium Chiffon Hijabs`} className='navbar-mini-link'>Premium Chiffon Hijabs</Link>
+                    <Link to={`/shop/Hijabs/Instant Bamboo Ribbed Jersey Hijabs`} className='navbar-mini-link'>Instant Bamboo Ribbed Jersey Hijabs</Link>
+                    <Link to={`/shop/Hijabs/Small Luxury Chiffon Hijabs`} className='navbar-mini-link'>Small Luxury Chiffon Hijabs</Link>
+                    <Link to={`/shop/Hijabs/Small Chiffon Hijabs`} className='navbar-mini-link'>Small Chiffon Hijabs</Link>
+                    <Link to={`/shop/Hijabs/Breathable Modal (Viscose)`} className='navbar-mini-link'>Breathable Modal (Viscose)</Link>
+                    <Link to={`/shop/Hijabs/SpeakPure Set Satin Lined`} className='navbar-mini-link'>SpeakPure Set Satin Lined</Link>
+
+                </div>
+              )}
+            </div>
+
+            <div 
+              className={`link-container ${openedCategories.pins ? 'clicked-link pins' : ''}`}
+              onMouseEnter={() => handleMouseEnter('pins')}
+              onMouseLeave={() => handleMouseLeave('pins')}
+            >
+              <div className={`list-title ${openedList ? 'title-animation' : ''}`} onClick={() => handleLinkClick('pins')}>
+                <p>Bags & Accessories</p>
+                <div className='plus-minus'>
+                <FontAwesomeIcon icon={faPlus} className={!openedCategories.pins ? 'opacity' : 'no-opacity'}/>
+                <FontAwesomeIcon icon={faMinus} className={openedCategories.pins ? 'opacity' : 'no-opacity'} />
+                </div>
+              </div>
+              {openedCategories.pins && (
+                <div 
+                  className='list-links' 
+                  onMouseEnter={() => handleMouseEnter('pins')}
+                  onMouseLeave={() => handleMouseLeave('pins')}
+                >
+                    <Link to={`/shop/all/Bags & Accessories/page/1`} className='navbar-mini-link'>Shop All Bags & Accessories</Link>
+                    <Link to={`/shop/Bags & Accessories/Hijab Pins`} className='navbar-mini-link'>Hijab Pins</Link>
+                    <Link to={`/shop/Bags & Accessories/Arm & Neck Covers`} className='navbar-mini-link'>Arm & Neck Covers</Link>
+                    <Link to={`/shop/Bags & Accessories/Luxury Bags`} className='navbar-mini-link'>Luxury Bags</Link>
+                    <Link to={`/shop/Bags & Accessories/Soulayma Accessories`} className='navbar-mini-link'>Soulayma Accessories</Link>
+                </div>
+              )}
+            </div>
+
+            <div 
+              className={`link-container ${openedCategories.underscarves ? 'clicked-link underscarves' : ''}`}
+              onMouseEnter={() => handleMouseEnter('underscarves')}
+              onMouseLeave={() => handleMouseLeave('underscarves')}
+            >
+              <div className={`list-title ${openedList ? 'title-animation' : ''}`} onClick={() => handleLinkClick('underscarves')}>
+                <p>Underscarves</p>
+                <div className='plus-minus'>
+                <FontAwesomeIcon icon={faPlus} className={!openedCategories.underscarves ? 'opacity' : 'no-opacity'}/>
+                <FontAwesomeIcon icon={faMinus} className={openedCategories.underscarves ? 'opacity' : 'no-opacity'} />
+                </div>
+              </div>
+              {openedCategories.underscarves && (
+                <div 
+                  className='list-links' 
+                  onMouseEnter={() => handleMouseEnter('underscarves')}
+                  onMouseLeave={() => handleMouseLeave('underscarves')}
+                >
+                    <Link to={`/shop/all/Underscarves/page/1`} className='navbar-mini-link'>Shop All Underscarves</Link>
+                    <Link to={`/shop/Underscarves/Satin Lined Tie-Back`} className='navbar-mini-link'>Satin Lined Tie-Back</Link>
+                    <Link to={`/shop/Underscarves/Satin Linded Undercap`} className='navbar-mini-link'>Satin Linded Undercap</Link>
+                    <Link to={`/shop/Underscarves/Tube Underscarves`} className='navbar-mini-link'>Tube Underscarves</Link>
+                    <Link to={`/shop/Underscarves/Criss Cross Tie-Back Underscarves`} className='navbar-mini-link'>Criss Cross Tie-Back Underscarves</Link>
+                    <Link to={`/shop/Underscarves/Ear Slit Underscarves`} className='navbar-mini-link'>Ear Slit Underscarves</Link>
+                    <Link to={`/shop/Underscarves/Full Coverage Underscarves`} className='navbar-mini-link'>Full Coverage Underscarves</Link>
+                    <Link to={`/shop/Underscarves/Satin Lined Full Coverage Underscarves`} className='navbar-mini-link'>Satin Lined Full Coverage Underscarves</Link>
+                    <Link to={`/shop/Underscarves/Mesh Back Underscarves`} className='navbar-mini-link'>Mesh Back Underscarves</Link>
+                </div>
+              )}
+            </div>
+
+            <div 
+              className={`link-container ${openedCategories.abayas ? 'clicked-link abayas' : ''}`}
+              onMouseEnter={() => handleMouseEnter('abayas')}
+              onMouseLeave={() => handleMouseLeave('abayas')}
+            >
+              <div className={`list-title ${openedList ? 'title-animation' : ''}`} onClick={() => handleLinkClick('abayas')}>
+                <p>Abayas</p>
+                <div className='plus-minus'>
+                <FontAwesomeIcon icon={faPlus} className={!openedCategories.abayas ? 'opacity' : 'no-opacity'}/>
+                <FontAwesomeIcon icon={faMinus} className={openedCategories.abayas ? 'opacity' : 'no-opacity'} />
+                </div>
+              </div>
+              {openedCategories.abayas && (
+                <div 
+                  className='list-links' 
+                  onMouseEnter={() => handleMouseEnter('abayas')}
+                  onMouseLeave={() => handleMouseLeave('abayas')}
+                >
+                  <Link to={`/shop/all/Abayas/page/1`} className='navbar-mini-link'>Shop All Abayas</Link>
+                  <Link to={`/shop/Abayas/Suede Open Abayas`} className='navbar-mini-link'>Suede Open Abayas</Link>
+                  <Link to={`/shop/Abayas/Mina Abayas`} className='navbar-mini-link'>Mina Abayas</Link>
+                  <Link to={`/shop/Abayas/Ruffle Border Abayas`} className='navbar-mini-link'>Ruffle Border Abayas</Link>
+                  <Link to={`/shop/Abayas/Yara Closed Abayas`} className='navbar-mini-link'>Yara Closed Abayas</Link>
+                </div>
+              )}
+            </div>
+
+            <div 
+              className={`link-container ${openedCategories.jilbabs ? 'clicked-link jilbabs' : ''}`}
+              onMouseEnter={() => handleMouseEnter('jilbabs')}
+              onMouseLeave={() => handleMouseLeave('jilbabs')}
+            >
+              <div className={`list-title ${openedList ? 'title-animation' : ''}`} onClick={() => handleLinkClick('jilbabs')}>
+                <p>Jilbabs</p>
+                <div className='plus-minus'>
+                <FontAwesomeIcon icon={faPlus} className={!openedCategories.jilbabs ? 'opacity' : 'no-opacity'}/>
+                <FontAwesomeIcon icon={faMinus} className={openedCategories.jilbabs ? 'opacity' : 'no-opacity'} />
+                </div>
+              </div>
+              {openedCategories.jilbabs && (
+                <div 
+                  className='list-links' 
+                  onMouseEnter={() => handleMouseEnter('jilbabs')}
+                  onMouseLeave={() => handleMouseLeave('jilbabs')}
+                >
+                  <Link to={`/shop/all/Jilbabs/page/1`}  className='navbar-mini-link'>Shop All Jilbabs</Link>
+                  <Link to={`/shop/Jilbabs/French Tie Back Jilbabs`} className='navbar-mini-link'>French Tie Back Jilbabs</Link>
+                  <Link to={`/shop/Jilbabs/Soulayma Jilbabs`} className='navbar-mini-link'>Soulayma Jilbabs</Link>
+                </div>
+              )}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div className='right-side'>
+        <div className={`nav-input ${openedSearch ? '' : 'closed-search'}`}>
+          <input
+            placeholder='Search For Item...'
+            value={inpValue} ref={searchRef}
+            onChange={(e) => setInpValue(e.target.value)}
+          />
+          <FontAwesomeIcon className='scope' onClick={handleFocus} icon={faMagnifyingGlass} />
+          <FontAwesomeIcon onClick={() => setOpenedSearch(false)} className='x-search' icon={faXmark}/>
+        </div>
+        <FontAwesomeIcon className='scope2' onClick={()=>setOpenedSearch(true)} icon={faMagnifyingGlass} />
+        <div className='bag-cont'>
+          <Link to={'/cart'} className='navbar-mini-link'>
+            <FontAwesomeIcon className='shopping-bag' icon={faBagShopping} />
+          </Link>
+          <p className='bag-count'>({cartLength})</p>
+        </div>
+      </div>
+    </div>
+    </div>
+   
+  );
+};
+
+export default Navbar;

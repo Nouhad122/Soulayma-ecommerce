@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Prompt:wght@300;400;500&display=swap');
+
+:root{
+    --first-color: #922233;
+    --body-color: #faeed5;
+    --second-body-color: #e8d8bb;
+    --second-color: #bf5c4f;
+    --third-color: #44040c;
+    --fourth-color: #340414;
+    --fifth-color: #640413;
+    --sixth-color: #919191;
+    --gold-color: #ecd4a0;
+    --font-color: #fdf3f3;
+    --body-font:'Prompt', sans-serif;
+    --first-font:'Dancing Script', cursive;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--body-color);
+    font-family: var(--body-font);
+}
+.no-scrolling{
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+a{
+    text-decoration: none;
+}
+.blur-cover{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.466);
+    z-index: 900;
+}
+.hidden-blur{
+    display: none;
+}
+.custom-btn{
+    width: 24vw;
+    padding: 15px;
+    font-size: 1.9rem;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    color: var(--font-color);
+  }
+  .button-link{
+    font-family: var(--first-font);
+  }
+.btn-15 {
+    background: var(--fifth-color);
+    border: none;
+    z-index: 1;
+  }
+  .btn-15:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-color: var(--sixth-color);
+    transition: all 0.5s ease;
+  }
+  .btn-15:hover {
+    color: #fff;
+  }
+  .btn-15:hover:after {
+    left: 0;
+    width: 100%;
+  }
+  .btn-15:active {
+    top: 2px;
+  }

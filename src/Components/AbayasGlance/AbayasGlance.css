@@ -1,0 +1,159 @@
+.title h1{
+    font-size: 3.2rem;
+    color: var(--fourth-color);
+    font-family: var(--first-font);
+}
+.title h3{
+    font-size: 1.4rem;
+    color: var(--sixth-color);
+}
+.abayas-glance .title{
+    text-align: center;
+}
+.abayas-glance{
+    padding: 80px 40px;
+    background-color: var(--second-body-color);
+}
+.abayas-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 150px;
+    padding: 30px 6.8%;
+}
+.abaya-product{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--fifth-color);
+    height: 100%;
+}
+.abaya-link:hover .abaya-image1{
+    opacity: 0;
+}
+.abaya-product .images{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.abaya-product img{
+    width: 100%;
+    height: 80vh;
+    margin-bottom: 15px;
+    transition: .4s ease;
+}
+.abaya-product .abaya-image1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.abaya-link{
+    color: var(--font-color);
+}
+.abaya-link:hover{
+    color: var(--gold-color);
+}   
+.abaya-product h2{
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 15px 10px 10px 10px;
+}
+.abaya-product h4{
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 10px;
+}
+.abayas-feedbacks{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 5px 20px 20px 20px;
+}
+.abayas-feedbacks .rate{
+    font-size: 1.3rem;
+}
+.abayas-feedbacks .feedbacks svg{
+    margin: 3px;
+    font-size: 1.3rem;
+}
+.button-container{
+    text-align: center;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 1490px){
+    .abayas-container{
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+    .abaya-product img{
+        height: 70vh;
+    }
+    .abaya-product h2{
+        font-size: 1.3rem;
+        padding: 10px 40px;
+    }
+    .abaya-product h4{
+        font-size: 1.2rem;
+        padding: 10px 40px;
+    }
+    .abayas-feedbacks .rate{
+        font-size: 1.1rem;
+    }
+    .abayas-feedbacks .feedbacks svg{
+        font-size: 1.1rem;
+    }
+    .title h1{
+        font-size: 2.6rem;
+    }
+    .title h3{
+        font-size: 1.2rem;
+    }
+    .custom-btn {
+        width: 30vw;
+        padding: 10px;
+        font-size: 1.6rem;
+    }
+}
+@media screen and (max-width: 1008px){
+    .abaya-product img{
+        object-fit: cover;
+        height: 80vh;
+    }
+    .abayas-container{
+        padding: 30px 1.2%;
+    }
+    .custom-btn {
+        width: 40vw;
+        padding: 10px;
+        font-size: 1.4rem;
+    }
+}
+@media screen and (max-width: 758px){
+    .abayas-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .abaya-product{
+        width: 60vw !important;
+    }
+    .custom-btn {
+        width: 70vw;
+    }
+}
+@media screen and (max-width: 490px){
+    .abayas-glance{
+        padding: 80px 10px;
+    }
+    .abayas-container{
+    padding: 30px 5px;
+    }
+    .abaya-product{
+        width: 100% !important;
+    }
+    .title h1{
+        font-size: 2rem;
+    }
+    .title h3{
+        font-size: 1rem;
+    }
+}
