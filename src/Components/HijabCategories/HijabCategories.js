@@ -67,7 +67,7 @@ const HijabCategories = () => {
             <h1>{category.categ_title}</h1>
             <div className='categ-button-container'>
             <Link to={category.categ_link} className='categ-button-link' >
-            <button className="categ-custom-btn categ-btn-15">
+            <button className="custom-btn btn-15 categ-btn">
               Shop The Collection
             </button>
             </Link>

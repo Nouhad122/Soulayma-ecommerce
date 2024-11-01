@@ -14,11 +14,11 @@
 }
 .product-images .prod-image1{
     min-width: 28vw;
-    width: 33vw;
+    width: 28vw;
     max-height: 900px;
 }
 .product-images .prod-image2{
-    width: 14vw;
+    width: 12vw;
     max-height: 400px;
 }
 .product-images .images-points{
@@ -32,17 +32,16 @@
     display: flex;
     gap: 10px;
     padding: 5px 0 0 0;
-    font-size: 1.1rem;
+    font-size: .9rem;
 }
 .product-cap h1{
     text-transform: uppercase;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 350;
 }
 .product-cap h3{
     font-weight: 400;
-    font-size: 1.8rem;
-    margin-top: 15px;
+    font-size: 1.3rem;
 }
 .product-infos .checked-info{
     display: flex;
@@ -51,56 +50,23 @@
     align-items: center;
 }
 .checked-info svg{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 .checked-info p{
     margin: 0 10px;
-    font-size: 1.9rem;
+    font-size: 1.5rem;
 }
 .product-color p{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     margin-top: 20px;
 }
 .product-cap .custom-btn{
     width: 100%;
     padding: 10px;
-    font-size: 1.6rem;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    color: var(--font-color);
     margin-top: 25px;
 }
-.product-cap .btn-15 {
-    background: var(--fifth-color);
-    border: none;
-    z-index: 1;
-}
-.product-cap .btn-15:after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 100%;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    background-color: var(--sixth-color);
-    transition: all 0.5s ease;
-}
-.product-cap .btn-15:hover {
-    color: #fff;
-}
-.product-cap .btn-15:hover:after {
-    left: 0;
-    width: 100%;
-}
-.product-cap .btn-15:active {
-    top: 2px;
-}
 .product-cap .free-shipping{
-    font-size: 1rem;
+    font-size: .8rem;
     text-align: center;
     margin-top: 15px;
     text-transform: uppercase;
@@ -108,7 +74,7 @@
 .product-cap .estimated-delivery{
     background-color: var(--second-body-color);
     padding: 15px;
-    font-size: 1rem;
+    font-size: .8rem;
     text-align: center;
 }
 .prod-spec{
@@ -132,20 +98,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 9px 0;
     cursor: pointer;
 }
 .spec-title h3{
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin: auto 0;
     text-transform: uppercase;
     font-weight: 400;
 }
 .prod-spec p{
     margin-top: 20px;
+    font-size: .9rem;
 }
 .prod-plus-minus svg{
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .hidden-svg{
     display: none;
@@ -156,12 +123,12 @@
     background-color: var(--second-body-color);
 }
 .sugg-prod-title h1{
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     color: var(--fourth-color);
     font-family: var(--first-font);
 }
 .sugg-prod-title h3{
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: var(--sixth-color);
 }
 .suggested-products-container .sugg-prod-title{
@@ -170,7 +137,7 @@
 }
 .suggested-products{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
     padding: 40px 20px;
 }
@@ -206,14 +173,12 @@
     color: var(--gold-color);
 }   
 .sugg-prod h2{
-    font-size: 1.6rem;
-    
-    padding: 15px 10px 10px 10px;
+    font-size: 1.1rem;
+    padding: 15px 10px 5px 10px;
 }
 .sugg-prod h4{
-    font-size: 1.5rem;
-    
-    padding: 10px;
+    font-size: 1rem;
+    padding: 0 10px;
 }
 .sugg-prod-feedbacks{
     display: flex;
@@ -222,28 +187,31 @@
     padding: 5px 10px 20px 10px;
 }
 .sugg-prod-feedbacks .rate{
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 .sugg-prod-feedbacks .feedbacks svg{
     margin: 3px;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 @media screen  and (max-width: 1281px){
     .product-cap h1{
-        font-size: 2rem;
-    }
-    .product-cap h3{
-        font-size: 1.4rem;
-    }
-    .checked-info p{
         font-size: 1.5rem;
     }
-    .product-cap .custom-btn{
+    .product-cap h3{
+        font-size: 1.1rem;
+    }
+    .checked-info p{
         font-size: 1.2rem;
     }
+    .product-cap .custom-btn{
+        font-size: .9rem !important;
+    }
     .product-color p{
-        font-size: 1.1rem;
+        font-size: .8rem;
+    }
+    .suggested-products{
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     }
     
 }
@@ -296,16 +264,16 @@
         opacity: 1 !important;
     }
     .suggested-products{
-        gap: 90px;
+        gap: 20px;
     }
     .sugg-prod-title h1{
-        font-size: 2.4rem;
+        font-size: 1.8rem;
     }
     .sugg-prod-title h3{
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 }
-@media screen  and (max-width: 750px){
+@media screen  and (max-width: 550px){
     .suggested-products{
         display: flex;
         flex-direction: column;
@@ -314,12 +282,8 @@
         align-items: center;
     }
     .sugg-prod{
-        width: 60vw !important;
-    }
-}
-@media screen  and (max-width: 465px){
-    .sugg-prod{
-        width: 95vw !important;
+        width: 275px !important;
+        object-fit: cover;
     }
 }
 

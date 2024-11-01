@@ -67,7 +67,7 @@ useEffect(() => {
                 </td>
                 <td>{(product.price * product.quantity).toFixed(2)}$</td>
                 <td>
-                  <VscTrash className='cart-trash' size={30} onClick={() => removeFromCart(product)} />
+                  <VscTrash className='cart-trash' size={20} onClick={() => removeFromCart(product)} />
                 </td>
               </tr>
             ))}

@@ -8,12 +8,12 @@
     text-align: center;
 }
 .title h1{
-    font-size: 3.2rem;
+    font-size: 2.5rem !important;
     color: var(--fourth-color);
     font-family: var(--first-font);
 }
 .title h3{
-    font-size: 1.4rem;
+    font-size: 1rem !important;
     color: var(--sixth-color);
 }
 .slider-container{
@@ -46,8 +46,8 @@
     height: 100%;
 }
 .product img{
-    width: 350px;
-    height: 480px;
+    width: 270px;
+    height: 390px;
     object-fit: cover;
     object-position: center;
     margin-inline: auto; 
@@ -67,11 +67,11 @@
     color: var(--font-color);
 }
 .product h2{
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     padding: 20px 10px 5px 10px;
 }
 .product h4{
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0 10px;
 }
 .feedbacks-container{
@@ -80,17 +80,17 @@
     padding: 0 7px;
 }
 .feedbacks-container .rate{
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 .feedbacks-container .feedbacks svg{
     margin: 3px;
-    font-size: 1.2rem;
+    font-size: .8rem;
 }
 .scrolling-icon{
     background-color: var(--fifth-color);
     color: var(--font-color);
     font-weight: bold;
-    padding: 18px 20px;
+    padding: 13px 15px;
     border-radius: 50%;
     font-size: 1.3rem;
     cursor: pointer;

@@ -12,11 +12,10 @@ footer{
 }
 .owner-info p{
     color: #ffebc9;
-    font-size: 1.2rem;
+    font-size: .9rem;
 }
 .owner-info h3{
     margin: 10px 0;
-    font-size: 2rem;
 }
 
 .owner-info p strong{
@@ -24,8 +23,8 @@ footer{
     color: #ffebc9 !important;
 }
 .logo img{
-    width: 140px;
-    height: 140px;
+    width: 90px;
+    height: 90px;
 }
  .address-info, .account-info, .payment-info{
     padding: 30px 0;
@@ -35,22 +34,22 @@ footer{
     margin-top: 10px;
     text-decoration: none;
     color: #ffebc9;
-    font-size: 1rem;
+    font-size: .9rem;
 }
  footer h3{
     color: #ecd4a0;
     font-family: var(--first-font);
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 .payment-info .footer-link{
     color: #ecd4a0;
-    font-size: 3rem;
+    font-size: 2rem;
     margin-right: 20px;
 }
 .follow-me svg{
     color: #ffebc9;
-    font-size: 1.4rem;
-    margin: 10px 5px;
+    font-size: 1.1rem;
+    margin: 10px 3px;
 }
 .owner{
     color: #ecd4a0;
@@ -60,14 +59,14 @@ footer{
     
 }
 .owner p{
-    font-size: 1.1rem;
+    font-size: .9rem;
     margin: auto;
 }
 .coupon-sub-container{
     background-color: var(--sixth-color);
     display: flex;
     justify-content: space-between;
-    padding: 20px 6.8%;
+    padding: 3px 6.8%;
     align-items: center;
 }
 .coupon-sub-container .newsletter{
@@ -76,11 +75,12 @@ footer{
     gap: 30px;
 }
 .newsletter svg{
-    font-size: 4rem;
+    font-size: 2.5rem;
 }
 .newsletter h1{
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     font-family: var(--first-font);
+    margin-top: 15px;
 }
 .coupon-sub-container .subscription{
     display: flex;
@@ -88,7 +88,7 @@ footer{
     align-items: center;
 }
 .subscription p{
-    font-size: 1.1rem;
+    font-size: .9rem;
     margin-top: 10px;
 }
 .subscription .input-button{
@@ -97,15 +97,15 @@ footer{
 }
 .input-button input{
     width: 22vw;
-    padding: 11px;
-    font-size: 1.1rem;
+    padding: 8px;
+    font-size: .9rem;
     outline: none;
     border: none;
 }
 .input-button button{
     width: 9vw;
-    padding: 3px 0;
-    font-size: 1.8rem;
+    padding: 2px 0;
+    font-size: 1.4rem;
     font-family: var(--first-font);
     border: none;
     background-color: var(--fifth-color);
@@ -115,13 +115,13 @@ button .sub-link{
 }
 @media screen and (max-width: 1400px){
     .newsletter svg{
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     .newsletter h1{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .subscription p{
-        font-size: .8rem;
+        font-size: .7rem;
     }
     .input-button input{
         padding: 5px;
@@ -137,10 +137,7 @@ button .sub-link{
         flex-direction: column;
       }
       .owner-info p{
-        font-size: .9rem;
-    }
-    .owner-info h3{
-        font-size: 1.4rem;
+        font-size: .8rem;
     }
     .logo img{
         width: 100px;
@@ -150,7 +147,7 @@ button .sub-link{
         font-size: .8rem;
     }
     footer h3{
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     .payment-info .footer-link{
         font-size: 1.8rem;
@@ -165,11 +162,11 @@ button .sub-link{
         display: none;
     }
     .input-button input{
-        font-size: 1.1rem;
+        font-size: .8rem;
         width: 32vw;
     }
     .input-button button{
-        font-size: 1.2rem;
+        font-size: 1.1rem !important;
         width: 15vw;
     }
     .coupon-sub-container{
@@ -184,7 +181,7 @@ button .sub-link{
     }
     .input-button input{
         width: 100%;
-        padding: 8px;
+        padding: 6px;
     }
     .input-button button{
         font-size: 1.5rem;

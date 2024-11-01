@@ -1,10 +1,10 @@
 .title h1{
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     color: var(--fourth-color);
     font-family: var(--first-font);
 }
 .title h3{
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: var(--sixth-color);
 }
 .abayas-glance .title{
@@ -17,7 +17,7 @@
 .abayas-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 150px;
+    gap: 100px;
     padding: 30px 6.8%;
 }
 .abaya-product{
@@ -52,12 +52,12 @@
     color: var(--gold-color);
 }   
 .abaya-product h2{
-    font-size: 1.6rem;
+    font-size: 1.1rem;
     text-align: center;
     padding: 15px 10px 10px 10px;
 }
 .abaya-product h4{
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-align: center;
     padding: 10px;
 }
@@ -68,20 +68,20 @@
     padding: 5px 20px 20px 20px;
 }
 .abayas-feedbacks .rate{
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 .abayas-feedbacks .feedbacks svg{
     margin: 3px;
-    font-size: 1.3rem;
+    font-size: .9rem;
 }
 .button-container{
     text-align: center;
     margin-top: 40px;
 }
 
-@media screen and (max-width: 1490px){
+@media screen and (max-width: 1450px){
     .abayas-container{
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
         gap: 30px;
     }
     .abaya-product img{

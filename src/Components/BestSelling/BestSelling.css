@@ -1,10 +1,10 @@
 .title h1{
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     color: var(--fourth-color);
     font-family: var(--first-font);
 }
 .title h3{
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: var(--sixth-color);
 }
 .best-selling-section .title{
@@ -16,7 +16,7 @@
 }
 .best-selling-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     padding: 30px 6.8%;
 }
@@ -35,7 +35,7 @@
 }
 .best-selling-product img{
     width: 100%;
-    height: 60vh;
+    height: 55vh;
     margin-bottom: 15px;
     transition: .4s ease;
 }
@@ -52,14 +52,14 @@
     color: var(--gold-color);
 }   
 .best-selling-product h2{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     text-align: center;
     padding: 15px 10px 10px 10px;
 }
 .best-selling-product h4{
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     text-align: center;
-    padding: 10px;
+    padding: 0 10px;
 }
 .best-selling-feedbacks{
     display: flex;
@@ -68,11 +68,11 @@
     padding: 5px 20px 20px 20px;
 }
 .best-selling-feedbacks .rate{
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 .best-selling-feedbacks .feedbacks svg{
     margin: 3px;
-    font-size: 1.3rem;
+    font-size: .9rem;
 }
 @media screen and (max-width: 1400px){
     .best-selling-container{

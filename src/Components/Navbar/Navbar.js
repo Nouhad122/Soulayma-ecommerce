@@ -12,7 +12,24 @@ const Navbar = ({openedList, setOpenedList}) => {
   const [openedCategories, setOpenedCategories] = useState({});
   const [openedSearch, setOpenedSearch] = useState(false);
   const searchRef = useRef(null);
-  const cartLength = useSelector(state => state.cart.reduce((a,b) => a + b.quantity,0));
+  const cart = useSelector(state => state.cart);
+
+  const calculateCartLength = (cartItems) => {
+    return cartItems.reduce((a, b) => a + b.quantity, 0);
+  };
+
+  const [cartLength, setCartLength] = useState(calculateCartLength(cart));
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    setCartLength(calculateCartLength(cart));
+  }, [cart]);
+
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    setCartLength(calculateCartLength(savedCart));
+  }, []);
+
 
   useEffect(() => {
     const handleResize = () => setOpenedList(false);
@@ -33,7 +50,7 @@ const Navbar = ({openedList, setOpenedList}) => {
   };
 
   const handleMouseEnter = (linkName) => {
-    if (window.innerWidth >= 819) {
+    if (window.innerWidth >= 1450) {
       setOpenedCategories((prevOpenedCategories) => ({
         ...prevOpenedCategories,
         [linkName]: true,
@@ -42,7 +59,7 @@ const Navbar = ({openedList, setOpenedList}) => {
   };
 
   const handleMouseLeave = (linkName) => {
-    if (window.innerWidth >= 819) {
+    if (window.innerWidth >= 1450) {
       setTimeout(() => {
         if (!document.querySelector(`.link-container.${linkName}:hover`) && !document.querySelector(`.list-links.${linkName}:hover`)) {
           setOpenedCategories((prevOpenedCategories) => ({

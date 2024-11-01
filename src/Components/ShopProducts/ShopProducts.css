@@ -18,12 +18,12 @@
     margin-bottom: 30px;
 }
 .products-text h1{
-    font-size: 3.5rem;
+    font-size: 2.5rem !important;
     color: var(--fourth-color);
 }
 .shop-products .products-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, max-content));
+    grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
     justify-content: center;
     gap: 50px;
     padding: 30px 3.8%;
@@ -61,12 +61,13 @@
     color: var(--gold-color);
 }
 .shop-product h2{
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     padding: 5px 10px 10px 10px;
 }
 .shop-product h4{
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding: 0 10px;
+    margin-bottom: 10px;
 }
 .pagination {
     display: flex;
@@ -80,7 +81,7 @@
     text-decoration: none;
     border-bottom: 1px solid var(--fourth-color);
     color: var(--fourth-color);
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   
   .pagination-link.active {
@@ -102,7 +103,7 @@
   
 @media screen and (max-width: 1250px){
     .shop-products .products-container{
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
         gap: 30px;
         padding: 30px 2.8%;
     }
@@ -115,19 +116,18 @@
         padding: 30px 0;
     }
     .products-container .shop-product{
-        width: 95vw;
+        width: 80vw;
     }
     .shop-product img{
         height: 95vh;
         object-fit: cover;
     }
-    .products-text h1{
-        font-size: 2.5rem;
-    }
-
 }
 @media screen and (max-width: 402px){
     .pagination button {
         display: none;
+    }
+    .products-container .shop-product{
+        width: 95vw;
     }
 }

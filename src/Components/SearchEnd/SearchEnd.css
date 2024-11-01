@@ -8,7 +8,7 @@
     justify-content: space-between;
 }
 .search-end-container img{
-    width: 35vw;
+    width: 30vw;
     object-fit: cover;
 }
 .search-end-container .end-text{
@@ -17,58 +17,19 @@
 }
 .end-text h2{
     text-transform: uppercase;
-    font-size: 2.7rem;
-    font-weight: 300;
-    line-height: 60px;
+    font-size: 2rem;
+    font-weight:300;
+    line-height: 40px;
 }
 .end-text p{
-    font-size: 1.3rem;
+    font-size: .9rem;
     margin-top: 20px;
 }
-.button-container-end{
-    margin-top: 30px;
-}
-.custom-btn-end{
-    width: 18vw;
-    padding: 7px;
-    font-size: 1.6rem;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    color: var(--font-color);
+.custom-btn{
+    width: 17vw;
+    font-size: 1rem;
   }
-  .button-link-end{
-    font-family: var(--first-font);
-  }
-.btn-15-end{
-    background: var(--fifth-color);
-    border: none;
-    z-index: 1;
-  }
-  .btn-15-end:after{
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 100%;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    background-color: var(--sixth-color);
-    transition: all 0.5s ease;
-  }
-  .btn-15-end:hover {
-    color: #fff;
-  }
-  .btn-15-end:hover:after {
-    left: 0;
-    width: 100%;
-  }
-  .btn-15-end:active {
-    top: 2px;
-  }
+
   @media screen and (max-width: 1400px){
     .search-end-container img{
         width: 40vw;
@@ -83,7 +44,7 @@
     .search-end-container .end-text{
         padding: 60px 60px 60px 60px;
     }
-    .custom-btn-end{
+    .custom-btn{
         font-size: 1.4rem;
     }
   }
@@ -101,10 +62,6 @@
     .end-text p{
         font-size: 1rem;
     }
-    .custom-btn-end{
-        font-size: 1.2rem;
-        width: 25vw;
-    }
   }
   @media screen and (max-width: 758px){
     .search-end-container{
@@ -117,9 +74,9 @@
     .search-end-container .end-text{
         padding: 30px;
     }
-    .custom-btn-end{
+    .custom-btn{
         width: 45vw;
-        font-size: 1.3rem;
+        font-size: 1rem !important;
     }
   }
   @media screen and (max-width: 490px){
@@ -130,7 +87,7 @@
     .end-text p{
         font-size: .9rem;
     }
-    .custom-btn-end{
+    .custom-btn{
         width: 60vw;
     }
   }

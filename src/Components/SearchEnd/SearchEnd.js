@@ -14,11 +14,11 @@ const SearchEnd = () => {
                     designed with intention and crafted with quality and precision, Take a look on our Underscarves .
                 </p>
                 <p>Walk with us, walk in confidence.</p>
-                <div className='button-container-end'>
-                <Link to={`/shop/all/Underscarves/page/1`} className='button-link-end'>
-                  <button className="custom-btn-end btn-15-end">Shop All Underscarves</button>
+                
+                <Link to={`/shop/all/Underscarves/page/1`} className='button-link'>
+                  <button className="custom-btn btn-15">Shop All Underscarves</button>
                 </Link>
-                </div>
+                
                 
             </div>
         </div>

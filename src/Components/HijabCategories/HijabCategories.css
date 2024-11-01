@@ -3,12 +3,12 @@
     background-color: var(--body-color);
 }
 .title h1{
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     color: var(--fourth-color);
     font-family: var(--first-font);
 }
 .title h3{
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: var(--sixth-color);
 }
 .hijab-categories .title{
@@ -44,7 +44,7 @@
     z-index: 2;
 }
 .category-product img{
-    width: 520px;
+    width: 420px;
     filter:brightness(60%);
     transition: 10s ease;
     height: 100%;
@@ -59,7 +59,7 @@
     top: 55%;
     left: 0;
     transform: translateY(-55%);
-    font-size: 1.1rem;
+    font-size: .9rem;
     font-weight: 400;
     text-transform: uppercase;
     width: 100%;
@@ -74,57 +74,16 @@
     padding: 0 30px;
     font-weight: 400;
     letter-spacing: 5px;
-    font-size: 2rem;
-}
-.categ-custom-btn{
-    width: 18vw;
-    padding: 15px;
     font-size: 1.8rem;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border: solid 1px transparent !important;
-    color: var(--font-color);
-  }
-  .categ-custom-btn:hover{
-    background-color: transparent !important;
+}
+.categ-btn{
+    width: 18vw !important;
   }
 .categ-button-link{
     font-family: var(--first-font);
     position: absolute;
     bottom: 40px;
     left: 20px;
-  }
-.categ-btn-15 {
-    background: var(--fifth-color);
-    border: none;
-    z-index: 1;
-  }
-  .categ-btn-15:after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 100%;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    background-color: transparent;
-    transition: all 0.6s ease;
-    border: solid 1px transparent !important;
-  }
-  .categ-btn-15:hover {
-    color: #fff;
-  }
-  .categ-btn-15:hover:after {
-    left: 0;
-    width: 100%;
-    border: solid 1px var(--font-color) !important;
-  }
-  .categ-btn-15:active {
-    top: 2px;
   }
   @media screen and (max-width: 1400px){
     .category-product img{
@@ -136,24 +95,24 @@
     .category-product h1{
       font-size: 1.5rem;
     }
-    .categ-custom-btn{
-      width: 22vw;
-      padding: 10px;
-      font-size: 1.4rem;
+    .categ-btn{
+      width: 22vw !important;
+      padding: 10px !important;
+      font-size: 1.2rem !important;
     }
   }
   @media screen and (max-width: 850px){
-    .categ-custom-btn{
-      width: 40vw;
+    .categ-btn{
+      width: 40vw !important;
     }
     .categories-container{
       padding: 30px 0;
     }
   }
   @media screen and (max-width: 465px){
-    .categ-custom-btn{
-      width: 55vw;
-      font-size: 1.1rem;
+    .categ-btn{
+      width: 55vw !important;
+      font-size: .9rem;
     }
     .category-product img{
       width: 100%;

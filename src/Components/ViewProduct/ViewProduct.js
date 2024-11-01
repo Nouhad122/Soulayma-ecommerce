@@ -184,8 +184,8 @@ const ViewProduct = () => {
                             <img className='sugg-prod-image1' src={sugg.image1} alt={sugg.title}/>
                             <img className='sugg-prod-image2' src={sugg.image2} alt={sugg.title}/>
                         </div>
-                            <h2>{sugg.title}</h2>
-                            <h4>{sugg.price}</h4>
+                            <h2>{sugg.title} - {sugg.color}</h2>
+                            <h4>{sugg.price}$</h4>
 
                             <div className='sugg-prod-feedbacks'>
                                 <div className='feedbacks'>
