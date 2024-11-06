@@ -1,6 +1,10 @@
 .all-footer-elements{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 20px;
 }
 footer{
@@ -64,14 +68,24 @@ footer{
 }
 .coupon-sub-container{
     background-color: var(--sixth-color);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 3px 6.8%;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .coupon-sub-container .newsletter{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     gap: 30px;
 }
 .newsletter svg{
@@ -83,17 +97,25 @@ footer{
     margin-top: 15px;
 }
 .coupon-sub-container .subscription{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 30px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .subscription p{
     font-size: .9rem;
     margin-top: 10px;
 }
 .subscription .input-button{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .input-button input{
     width: 22vw;
@@ -134,7 +156,10 @@ button .sub-link{
 
 @media screen and (max-width: 1101px){
     .all-footer-elements{
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
       }
       .owner-info p{
         font-size: .8rem;
@@ -175,7 +200,10 @@ button .sub-link{
 }
 @media screen and (max-width: 590px){
     .coupon-sub-container{
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         gap: 10px;
         padding: 20px 10px;
     }

@@ -4,12 +4,17 @@
 }
 .search-end-container{
     background-color: var(--second-body-color);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 .search-end-container img{
     width: 30vw;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 .search-end-container .end-text{
     padding: 60px 120px 60px 60px;
@@ -65,11 +70,15 @@
   }
   @media screen and (max-width: 758px){
     .search-end-container{
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
     .search-end-container img{
         width: 93vw;
-        object-fit: fill;
+        -o-object-fit: fill;
+           object-fit: fill;
     }
     .search-end-container .end-text{
         padding: 30px;

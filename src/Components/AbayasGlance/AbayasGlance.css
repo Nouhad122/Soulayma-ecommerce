@@ -15,13 +15,15 @@
     background-color: var(--second-body-color);
 }
 .abayas-container{
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 50px;
     padding: 30px 6.8%;
 }
 .abaya-product{
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: var(--fifth-color);
     height: 100%;
 }
@@ -37,6 +39,8 @@
     width: 100%;
     height: 70vh;
     margin-bottom: 15px;
+    -webkit-transition: .4s ease;
+    -o-transition: .4s ease;
     transition: .4s ease;
 }
 .abaya-product .abaya-image1{
@@ -60,9 +64,13 @@
     padding: 10px;
 }
 .abayas-feedbacks{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 10px;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 0 7px 0 7px;
 }
 .abayas-feedbacks .rate{
@@ -109,7 +117,8 @@
 }
 @media screen and (max-width: 1008px){
     .abaya-product img{
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
         height: 80vh;
     }
     .abayas-container{
@@ -123,9 +132,16 @@
 }
 @media screen and (max-width: 758px){
     .abayas-container{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
     .abaya-product{
         width: 60vw !important;
