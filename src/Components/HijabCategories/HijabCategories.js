@@ -7,7 +7,7 @@ const HijabCategories = () => {
 
   const [categories] = useState([{
     categ_id: uuidv4(),
-    categ_img: 'https://voilechic.ca/cdn/shop/products/BlackPremiumChiffonHijab_600x.jpg?v=1597830758',
+    categ_img: 'https://voile-chic-worldwide.myshopify.com/cdn/shop/products/ForestGreenPremiumChiffon2_23ae7b31-c1ad-4564-8db0-c2145713907f.jpg?v=1600551468',
     categ_title: "'NON-SLIP' CHIFFON HIJABS",
     categ_desc: "TEXTURED WITH A SLIGHT STRETCH & GREAT COVERAGE",
     categ_link: `/shop/Hijabs/Premium Chiffon Hijabs`

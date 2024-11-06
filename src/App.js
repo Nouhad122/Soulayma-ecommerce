@@ -44,6 +44,7 @@ function App() {
             loading ?
               <LoadingPage/>
               :(
+                <div>
                 <Routes>
                   <Route path='/' element= {<Home/>}/>
                   <Route path='/shop/:category/:kind' element= {<Shop/>}/>
@@ -52,10 +53,12 @@ function App() {
                   <Route path='/cart' element = {<CartPage/>}/>
                   <Route path='*' element= {<NotMatch/>}/>
                 </Routes>
+                <Footer/>
+                </div>
              )
+             
             }
               </Suspense>
-              <Footer/>
           </div>
     </Provider>
   );
