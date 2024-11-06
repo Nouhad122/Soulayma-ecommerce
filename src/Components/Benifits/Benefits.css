@@ -46,3 +46,10 @@
         padding: 30px 40px 0 40px;
         }
 }
+@media screen and (min-height: 910px) {
+    .benefits-container .benefits-cards{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+

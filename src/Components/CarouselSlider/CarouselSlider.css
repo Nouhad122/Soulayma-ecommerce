@@ -92,4 +92,8 @@
         width: 60vw;
     }
 }
-
+@media screen and (min-height: 910px) {
+    .slide-label{
+        top: 20%;
+    }
+}

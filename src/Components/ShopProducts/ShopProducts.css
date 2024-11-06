@@ -103,7 +103,7 @@
   
 @media screen and (max-width: 1250px){
     .shop-products .products-container{
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 30px;
         padding: 30px 2.8%;
     }
@@ -129,5 +129,10 @@
     }
     .products-container .shop-product{
         width: 95vw;
+    }
+}
+@media screen and (min-height: 910px) {
+    .shop-product img{
+        height: 50vh;
     }
 }

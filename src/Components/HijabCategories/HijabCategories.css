@@ -2,15 +2,6 @@
     padding: 80px 40px;
     background-color: var(--body-color);
 }
-.title h1{
-    font-size: 2.5rem;
-    color: var(--fourth-color);
-    font-family: var(--first-font);
-}
-.title h3{
-    font-size: 1rem;
-    color: var(--sixth-color);
-}
 .hijab-categories .title{
     text-align: center;
 }
@@ -127,3 +118,9 @@
       padding: 80px 10px;
     }
   }
+
+  @media screen and (min-height: 910px) {
+    .category-product img{
+      width: 500px;
+  }
+}

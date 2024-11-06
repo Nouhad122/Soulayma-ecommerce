@@ -7,9 +7,8 @@ import { faBagShopping, faMagnifyingGlass, faBars, faXmark, faPlus, faMinus } fr
 import Header from './Header';
 import { useSelector } from 'react-redux';
 
-const Navbar = ({openedList, setOpenedList}) => {
+const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategories}) => {
   const [inpValue, setInpValue] = useState('');
-  const [openedCategories, setOpenedCategories] = useState({});
   const [openedSearch, setOpenedSearch] = useState(false);
   const searchRef = useRef(null);
   const cart = useSelector(state => state.cart);
@@ -36,7 +35,7 @@ const Navbar = ({openedList, setOpenedList}) => {
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [setOpenedList]);
 
   const handleFocus = () =>{
     searchRef.current.focus();

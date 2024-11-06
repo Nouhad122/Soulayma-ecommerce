@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import products from '../../Products/products.json';
 
 const AbayasGlance = () => {
-  const abyasProduct = products.filter(product => product.category === "Abayas").slice(0,3);
+  const abyasProduct = products.filter(product => product.category === "Abayas").slice(0,4);
   return (
     <div className='abayas-glance'>
       <div className='title'>

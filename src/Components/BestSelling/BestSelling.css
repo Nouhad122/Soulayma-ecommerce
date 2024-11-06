@@ -53,19 +53,17 @@
 }   
 .best-selling-product h2{
     font-size: 1.2rem;
-    text-align: center;
-    padding: 15px 10px 10px 10px;
+    padding: 0 10px 0 10px;
 }
 .best-selling-product h4{
     font-size: 1.1rem;
-    text-align: center;
     padding: 0 10px;
 }
 .best-selling-feedbacks{
     display: flex;
     gap: 10px;
     justify-content: space-between;
-    padding: 5px 20px 20px 20px;
+    padding: 0 7px 0 7px;
 }
 .best-selling-feedbacks .rate{
     font-size: 1rem;
@@ -126,7 +124,7 @@
         padding: 80px 10px;
     }
     .best-selling-container{
-    padding: 30px 0;
+        padding: 30px 0;
     }
     .best-selling-product{
         width: 90vw !important;
@@ -138,4 +136,9 @@
         font-size: 1rem;
     }
     
+}
+@media screen and (min-height: 910px) {
+    .best-selling-product img{
+        height: 40vh;
+    }
 }

@@ -10,11 +10,11 @@ const ProductsSlider = () => {
     const scrollRef = useRef(null);
 
     const scrollLeft = () =>{
-        scrollRef.current.scrollBy({left: window.innerWidth > 350 ? -300 : -300,behavior: 'smooth'}) ;
+        scrollRef.current.scrollBy({left: window.innerWidth > 350 ? -300 : -380,behavior: 'smooth'}) ;
     };
     
     const scrollRight = () =>{
-        scrollRef.current.scrollBy({left: window.innerWidth > 350 ? 300 : 300,behavior: 'smooth'});
+        scrollRef.current.scrollBy({left: window.innerWidth > 350 ? 300 : 380,behavior: 'smooth'});
     };
   return (
     <div className='products-slider'>
