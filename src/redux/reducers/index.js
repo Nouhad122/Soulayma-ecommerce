@@ -2,7 +2,15 @@ import { CART_ACTION_TYPES } from "../actions/cartActions";
 import products from '../../Products/products.json';
 
 const INITIAL_STATE = {
-    cart: JSON.parse(localStorage.getItem("cart")) || [],
+    cart: (() => {
+        try {
+            return JSON.parse(localStorage.getItem("cart")) || [];
+        } catch (e) {
+            console.warn("Invalid JSON in localStorage for 'cart'. Resetting to an empty array.");
+            localStorage.setItem("cart", JSON.stringify([]));
+            return [];
+        }
+    })(),
     cartTotal: 0,
     products,
 };

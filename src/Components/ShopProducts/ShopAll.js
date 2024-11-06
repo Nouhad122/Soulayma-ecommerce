@@ -9,7 +9,7 @@ const ShopAll = () => {
   const { category, page } = useParams();  // Capture the page from the URL
   const navigate = useNavigate();
 
-  const productsPerPage = 24;  // Updated to show 24 products per page
+  const productsPerPage = window.innerWidth > 1600 ? 25 : 24;  // Updated to show 24 products per page
   const currentPage = parseInt(page, 10) || 1;
 
   // Filter products based on category
