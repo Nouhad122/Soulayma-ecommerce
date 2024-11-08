@@ -1,32 +1,56 @@
-import React, { useRef, useState } from 'react';
-import {Link, useParams} from 'react-router-dom';
+import React, { useRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faCircleCheck, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import './ViewProduct.css';
 import { addToCartAction } from '../../redux/actions/cartActions';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-const ViewProduct = () => {
-    const products = useSelector(state => state.products);
-    
-    const {category,id} = useParams();
-
-    const productId = Number(id);
+const ViewProduct = ({chosenProduct, setOpenedFullImage}) => {
 
     const [activePoint, setActivePoint] = useState('point1');
 
     const point1Ref = useRef(null);
     const point2Ref = useRef(null);
+    const productImagesRef = useRef(null);
 
     const handlePointClick = (point) => {
     setActivePoint(point); 
     if (point === 'point1') {
         point1Ref.current.scrollIntoView({ behavior: 'smooth' });
-      } 
+      }     
     else if (point === 'point2') {
         point2Ref.current.scrollIntoView({ behavior: 'smooth' });
       }
     };
+
+    useEffect(() => {
+        const handleScroll = () => {
+          if (productImagesRef.current.scrollLeft > 350) {
+            setActivePoint('point2');
+          } else {
+            setActivePoint('point1');
+          }
+        };
+    
+        const productImagesDiv = productImagesRef.current;
+        productImagesDiv.addEventListener('scroll', handleScroll);
+    
+        return () => {
+          productImagesDiv.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            handlePointClick('point1');
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+    
 
     const [productsSpecifics, setProductsSpecifics] = useState([
         {
@@ -80,132 +104,83 @@ const ViewProduct = () => {
         : spec))
     }
 
-    function getRandomIdsByCategory(products, category, count) {
-        const filteredProducts = products.filter(product => product.category === category);
-        const ids = filteredProducts.map(product => product.id);
-        const shuffledIds = ids.sort(() => 0.5 - Math.random());
-        return shuffledIds.slice(0, count);
-      }
-      const randomIds = getRandomIdsByCategory(products, category, 5);
-      
-    const chosenProduct = products.find(product => product.id === productId);
-    const filteredSuggs = products.filter(product => product.category === category && randomIds.includes(product.id)).slice(0,5);
     const dispatch = useDispatch();
     const addToCart = () =>{
         dispatch(addToCartAction(chosenProduct));
     }
   
   return (
-    <div className='view-product'>
         
-                <div className='product-container'>
-                    <div className='product-images'>
-                        <img className='prod-image1' src={chosenProduct.image1} alt='' ref={point1Ref}/>
-                        <img className='prod-image2' src={chosenProduct.image2} alt='' ref={point2Ref}/>
+    <div className='product-container'>
+        <div className='product-images' ref={productImagesRef}>
+            <img onClick={() => setOpenedFullImage({isOpen:true, image:1})} className='prod-image1' src={chosenProduct.image1} alt='' ref={point1Ref}/>
+            <img onClick={() => setOpenedFullImage({isOpen:true, image:2})} className='prod-image2' src={chosenProduct.image2} alt='' ref={point2Ref}/>
+        </div>
+        
+        <div className='images-points'>
+                <div onClick={() => handlePointClick('point1')} className={`point ${activePoint === 'point1' ? 'active-point' : ''}`}></div>
+                <div onClick={() => handlePointClick('point2')} className={`point ${activePoint === 'point2' ? 'active-point' : ''}`}></div>
+        </div>
+
+        <div className='product-details'>
+
+            <div className='product-reviews'>
+            <div className='feedbacks'>
+                <FontAwesomeIcon icon={faStar} />
+                <FontAwesomeIcon icon={faStar} />
+                <FontAwesomeIcon icon={faStar} />
+                <FontAwesomeIcon icon={faStar} />
+                <FontAwesomeIcon icon={faStar} />
+            </div>
+            <p className='rate'>5.0 based on 16 reviews</p>
+            </div>
+
+            <div className='product-cap'>
+                <h1>{chosenProduct.title}</h1>
+                <h3>{chosenProduct.price}$</h3>
+                <div className='product-infos'>
+                    <div className='checked-info'>
+                        <FontAwesomeIcon icon={faCircleCheck} />
+                        <p>Sustainable Bamboo Fabric, Ethically Produced In Turkey</p>
                     </div>
-                    
-                    <div className='images-points'>
-                            <div onClick={() => handlePointClick('point1')} className={`point ${activePoint === 'point1' ? 'active-point' : ''}`}></div>
-                            <div onClick={() => handlePointClick('point2')} className={`point ${activePoint === 'point2' ? 'active-point' : ''}`}></div>
+                    <div className='checked-info'>
+                        <FontAwesomeIcon icon={faCircleCheck} />
+                        <p>Buttery Soft, Gentle On Skin & Hair</p>
                     </div>
-        
-                    <div className='product-details'>
-        
-                        <div className='product-reviews'>
-                        <div className='feedbacks'>
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                          <FontAwesomeIcon icon={faStar} />
-                        </div>
-                        <p className='rate'>5.0 based on 16 reviews</p>
-                        </div>
-        
-                        <div className='product-cap'>
-                            <h1>{chosenProduct.title}</h1>
-                            <h3>{chosenProduct.price}$</h3>
-                            <div className='product-infos'>
-                                <div className='checked-info'>
-                                   <FontAwesomeIcon icon={faCircleCheck} />
-                                   <p>Sustainable Bamboo Fabric, Ethically Produced In Turkey</p>
-                                </div>
-                                <div className='checked-info'>
-                                   <FontAwesomeIcon icon={faCircleCheck} />
-                                   <p>Buttery Soft, Gentle On Skin & Hair</p>
-                                </div>
-                                <div className='checked-info'>
-                                   <FontAwesomeIcon icon={faCircleCheck} />
-                                   <p>Easy Styling, No Pins Required</p>
-                                </div>
-                            </div>
-                            <div className='product-color'>
-                                <p>Color: {chosenProduct.color}</p>
-                            </div>
-                            
-                            <button onClick={addToCart} className="custom-btn btn-15">Add To Cart</button>
-                            <p className='free-shipping'>free shipping on orders over $50</p>
-                            <p className='estimated-delivery'>Estimated delivery to , <strong>October 21 - November 5</strong></p>
-                        </div>
-        
-                        <div className='product-specifics'>
-                            {
-                                productsSpecifics.map(prodSpec =>(
-                                    <div className={`prod-spec ${prodSpec.isOpened ? 'opened-spec' : ''}`} key={prodSpec.id}>
-                                        <div onClick={() => toggleSpecs(prodSpec.id)} className='spec-title'>
-                                        <h3>{prodSpec.specTitle}</h3>
-                                        <div className='prod-plus-minus'>
-                                            <FontAwesomeIcon icon={faPlus} className={`${prodSpec.isOpened ? 'hidden-svg' : ''}`}/> 
-                                            <FontAwesomeIcon icon={faMinus} className={`${!prodSpec.isOpened ? 'hidden-svg' : ''}`} /> 
-                                        </div>
-                                        </div> 
-                                        <p dangerouslySetInnerHTML={{ __html: prodSpec.specParag }}></p>
-                                    </div>
-                                ))
-                            }
-                        </div>
-        
+                    <div className='checked-info'>
+                        <FontAwesomeIcon icon={faCircleCheck} />
+                        <p>Easy Styling, No Pins Required</p>
                     </div>
                 </div>
+                <div className='product-color'>
+                    <p>Color: {chosenProduct.color}</p>
+                </div>
+                
+                <button onClick={addToCart} className="custom-btn btn-15">Add To Cart</button>
+                <p className='free-shipping'>free shipping on orders over $50</p>
+                <p className='estimated-delivery'>Estimated delivery to , <strong>October 21 - November 5</strong></p>
+            </div>
 
-        <div className='suggested-products-container'>
-
-        <div className='sugg-prod-title'>
-            <h3>Products From</h3>
-            <h1>The Same Category</h1>
-        </div>
-
-        <div className='suggested-products'>
-            {
-                filteredSuggs.map(sugg =>(
-                <Link to={`/shop/product/${sugg.category}/${sugg.kind}/${sugg.id}`} className='sugg-prod-link' key={sugg.id}>
-                    <div className='sugg-prod'>
-                        <div className='sugg-prod-images'>
-                            <img className='sugg-prod-image1' src={sugg.image1} alt={sugg.title}/>
-                            <img className='sugg-prod-image2' src={sugg.image2} alt={sugg.title}/>
-                        </div>
-                            <h2>{sugg.title} - {sugg.color}</h2>
-                            <h4>{sugg.price}$</h4>
-
-                            <div className='sugg-prod-feedbacks'>
-                                <div className='feedbacks'>
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                </div>
-                                <p className='rate'>5.0 <span className='num-of-rates'>(5)</span></p>
+            <div className='product-specifics'>
+                {
+                    productsSpecifics.map(prodSpec =>(
+                        <div className={`prod-spec ${prodSpec.isOpened ? 'opened-spec' : ''}`} key={prodSpec.id}>
+                            <div onClick={() => toggleSpecs(prodSpec.id)} className='spec-title'>
+                            <h3>{prodSpec.specTitle}</h3>
+                            <div className='prod-plus-minus'>
+                                <FontAwesomeIcon icon={faPlus} className={`${prodSpec.isOpened ? 'hidden-svg' : ''}`}/> 
+                                <FontAwesomeIcon icon={faMinus} className={`${!prodSpec.isOpened ? 'hidden-svg' : ''}`} /> 
                             </div>
-                    </div>
-                </Link>
-                ))
-            }
+                            </div> 
+                            <p dangerouslySetInnerHTML={{ __html: prodSpec.specParag }}></p>
+                        </div>
+                    ))
+                }
+            </div>
+
         </div>
-        
-        </div>
-      
     </div>
+
   )
 }
 

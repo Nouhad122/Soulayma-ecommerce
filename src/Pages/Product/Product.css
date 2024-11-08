@@ -1,7 +1,7 @@
-.view-product{
+.productPage{
     padding: 3% 0 0 0;
 }
-.view-product .product-container{
+.product-container{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -25,10 +25,12 @@
     min-width: 28vw;
     width: 28vw;
     max-height: 900px;
+    cursor: crosshair;
 }
 .product-images .prod-image2{
     width: 12vw;
     max-height: 400px;
+    cursor: crosshair;
 }
 .product-images .images-points{
     display: none;
@@ -222,6 +224,66 @@
     margin: 3px;
     font-size: 1rem;
 }
+.full-image{
+    background-color: var(--body-color);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.images-box{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 450px;
+}
+.images-box img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.images-box .full-image1{
+    z-index: 800;
+}
+.images-box .full-image2{
+    z-index: 799;
+}
+.zero-opacity{
+    opacity: 0;
+}
+.images-box svg{
+  position: absolute;
+  bottom: 30px;
+  z-index: 801;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 3rem;
+  padding: 15px;
+  cursor: pointer;
+}
+.greater-icon{
+    right: 30%;
+}
+.less-icon{
+    left: 30%;
+}
+.full-x-mark{
+    padding: 18px !important;
+    font-size: 4rem !important;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
 @media screen  and (max-width: 1281px){
     .product-cap h1{
@@ -245,7 +307,10 @@
     
 }
 @media screen  and (max-width: 1030px){
-    .view-product .product-container{
+    .productPage{
+        padding: 0 0 0 0;
+    }
+    .product-container{
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
@@ -332,6 +397,18 @@
         -o-object-fit: cover;
            object-fit: cover;
     }
+    .images-box{
+        width: 300px;
+    }
+    .images-box img{
+        object-fit: contain;
+    }
+    .greater-icon{
+        right: 20%;
+    }
+    .less-icon{
+        left: 20%;
+    }
 }
 @media screen and (min-height: 910px){
     .prod-spec{
@@ -339,5 +416,8 @@
     }
     .sugg-prod img{
         height: 55vh;
+    }
+    .images-box{
+        width: 600px;
     }
 }

@@ -20,6 +20,7 @@ function App() {
   const [openedList, setOpenedList] = useState(false);
   const [openedCategories, setOpenedCategories] = useState({});
   const [loading, setLoading] = useState(true);
+  const [openedFullImage, setOpenedFullImage] = useState({isOpen:false, image:1});
 
   const location = useLocation();
 
@@ -35,7 +36,7 @@ function App() {
   
   return (
     <Provider store={store}>
-        <div className={`App ${openedList ? 'no-scrolling' : ''}`}>
+        <div className={`App ${openedList || openedFullImage.isOpen ? 'no-scrolling' : ''}`}>
               <div onClick={() => setOpenedList(false)} className={`blur-cover ${!openedList ? 'hidden-blur' : ''}`}></div>
               <Navbar openedList = {openedList} setOpenedList={setOpenedList} openedCategories={openedCategories} setOpenedCategories={setOpenedCategories}/>
               <ScrollToTop location = {location}/>
@@ -49,7 +50,7 @@ function App() {
                   <Route path='/' element= {<Home/>}/>
                   <Route path='/shop/:category/:kind' element= {<Shop/>}/>
                   <Route path='/shop/all/:category/page/:page' element = {<Shop2/>}/>
-                  <Route path='/shop/product/:category/:kind/:id' element= {<Product/>}/>
+                  <Route path='/shop/product/:category/:kind/:id' element= {<Product openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage}/>}/>
                   <Route path='/cart' element = {<CartPage/>}/>
                   <Route path='*' element= {<NotMatch/>}/>
                 </Routes>
