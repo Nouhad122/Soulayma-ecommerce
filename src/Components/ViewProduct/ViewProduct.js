@@ -3,14 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faCircleCheck, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { addToCartAction } from '../../redux/actions/cartActions';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-const ViewProduct = ({chosenProduct, setOpenedFullImage}) => {
+const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) => {
 
     const [activePoint, setActivePoint] = useState('point1');
 
     const point1Ref = useRef(null);
     const point2Ref = useRef(null);
     const productImagesRef = useRef(null);
+
+    const navigate = useNavigate();
 
     const handlePointClick = (point) => {
     setActivePoint(point); 
@@ -20,7 +23,7 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage}) => {
     else if (point === 'point2') {
         point2Ref.current.scrollIntoView({ behavior: 'smooth' });
       }
-    };
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -153,8 +156,18 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage}) => {
                     </div>
                 </div>
                 <div className='product-color'>
-                    <p>Color: {chosenProduct.color}</p>
+                    <p>Color: {chosenProduct.colorCode}</p>
                 </div>
+
+            <div className='other-colors'>
+            {   
+              products.map(product =>(
+                product.kind === kind ?
+                <div onClick={() => navigate(`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`)} key={product.id} className={`color ${product.id === Number(id) ? 'chosen-color' : ''}`} style={{backgroundColor: product.colorCode}}></div>
+                : null
+              ))
+            }
+            </div>
                 
                 <button onClick={addToCart} className="custom-btn btn-15">Add To Cart</button>
                 <p className='free-shipping'>free shipping on orders over $50</p>

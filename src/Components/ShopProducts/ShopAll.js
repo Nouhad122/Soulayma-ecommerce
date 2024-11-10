@@ -55,7 +55,7 @@ const ShopAll = () => {
         </div>
       <div className='products-container'>
         {currentProducts.map(product => (
-          <Link to={`/shop/product/${product.category}/${product.kind}/${product.id}`} className='shop-product-link' key={product.id}>
+          <Link to={`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`} className='shop-product-link' key={product.id}>
             <div className='shop-product'>
               <div className='images'>
                 <img className='image1' src={product.image1} alt={product.title} />

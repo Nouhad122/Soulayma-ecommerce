@@ -283,6 +283,20 @@
     left: 50%;
     transform: translateX(-50%);
 }
+.other-colors{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.other-colors .color{
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: solid 3px transparent;
+}
+.chosen-color{
+    border: solid 3px var(--fifth-color) !important;
+}
 
 
 @media screen  and (max-width: 1281px){

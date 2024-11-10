@@ -139,11 +139,10 @@ const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategorie
                   onMouseEnter={() => handleMouseEnter('pins')}
                   onMouseLeave={() => handleMouseLeave('pins')}
                 >
-                    <Link to={`/shop/all/Bags & Accessories/page/1`} className='navbar-mini-link'>Shop All Bags & Accessories</Link>
-                    <Link to={`/shop/Bags & Accessories/Hijab Pins`} className='navbar-mini-link'>Hijab Pins</Link>
-                    <Link to={`/shop/Bags & Accessories/Arm & Neck Covers`} className='navbar-mini-link'>Arm & Neck Covers</Link>
-                    <Link to={`/shop/Bags & Accessories/Luxury Bags`} className='navbar-mini-link'>Luxury Bags</Link>
-                    <Link to={`/shop/Bags & Accessories/Soulayma Accessories`} className='navbar-mini-link'>Soulayma Accessories</Link>
+                    <Link to={`/shop/Pins/Hijab Pins`} className='navbar-mini-link'>Hijab Pins</Link>
+                    <Link to={`/shop/Body Covers/Arm & Neck Covers`} className='navbar-mini-link'>Arm & Neck Covers</Link>
+                    <Link to={`/shop/Luxury Bags/Luxury Bags`} className='navbar-mini-link'>Luxury Bags</Link>
+                    <Link to={`/shop/Soulayma Accessories/Accessories`} className='navbar-mini-link'>Soulayma Accessories</Link>
                 </div>
               )}
             </div>

@@ -8,7 +8,7 @@ import FullImage from '../../Components/ViewProduct/FullImage';
 
 const Product = ({openedFullImage, setOpenedFullImage}) => {
 
-  const {category,id} = useParams();
+  const {category,id,kind} = useParams();
 
   const products = useSelector(state => state.products);
 
@@ -17,7 +17,7 @@ const Product = ({openedFullImage, setOpenedFullImage}) => {
 
   return (
     <div className='productPage'>
-      <ViewProduct chosenProduct={chosenProduct} openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage}/>
+      <ViewProduct products={products} kind={kind} id={id} chosenProduct={chosenProduct} openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage}/>
       <Suggetions category={category} products={products}/>
 
     {

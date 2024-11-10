@@ -7,7 +7,7 @@ import './ShopProducts.css';
 
 const ShopProducts = () => {
   const { category, kind } = useParams();
-  const filteredProducts = products.filter(product => product.category === category && product.kind === kind);
+  const filteredProducts = products.filter(product => product.category === category);
   return (
     <div className='shop-products'>
         <div className='products-text'>
@@ -16,7 +16,7 @@ const ShopProducts = () => {
       <div className='products-container'>
             {
                 filteredProducts.map(product =>(
-                    <Link to={`/shop/product/${product.category}/${product.kind}/${product.id}`} className='shop-product-link' key={product.id}>
+                    <Link to={`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`} className='shop-product-link' key={product.id}>
                         <div className='shop-product'>
                             <div className='images'>
                                 <img className='image1' src={product.image1} alt={product.title}/>
