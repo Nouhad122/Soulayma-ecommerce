@@ -933,7 +933,7 @@
     "title":"Hijab Magnet",
     "kind":"Hijab Pins",
     "colorCode": "#FFD700",
-    "category": "Pins",
+    "category": "Hijab Pins",
     "image1": "https://voilechic.com/cdn/shop/products/GoldMagnet2.png?v=1618006805",
     "image2": "https://voilechic.com/cdn/shop/products/MagnetPins-Gold.jpg?v=1618006805",
     "price": 9
@@ -943,7 +943,7 @@
     "title":"Hijab Magnet",
     "kind":"Hijab Pins",
     "colorCode": "#C0C0C0",
-    "category": "Pins",
+    "category": "Hijab Pins",
     "image1": "https://voilechic.com/cdn/shop/products/SilverMagnet2.png?v=1618005009",
     "image2": "https://voilechic.com/cdn/shop/products/HijabMagnet-Silver.jpg?v=1638400397",
     "price": 9
@@ -953,7 +953,7 @@
     "title":"Hijab Pins",
     "kind":"Hijab Pins",
     "colorCode": "#ff5fd3",
-    "category": "Pins",
+    "category": "Hijab Pins",
     "image1": "https://i.ebayimg.com/images/g/kwcAAOSwT1Fio24g/s-l1600.jpg",
     "image2": "https://i.ebayimg.com/images/g/JfQAAOSwDA1ipho0/s-l1600.jpg",
     "price": 13
@@ -964,7 +964,7 @@
     "kind":"Hijab Pins",
     "colorCode": "#000000",
     "color": "Black (Entire wheel)",
-    "category": "Pins",
+    "category": "Hijab Pins",
     "image1": "https://voilechic.ca/cdn/shop/products/IMG_8838_900x.png?v=1663563319",
     "image2": "https://voilechic.ca/cdn/shop/products/IMG_8838_900x.png?v=1663563319",
     "price": 6
@@ -974,9 +974,8 @@
     "title":"Hijab Pins",
     "kind":"Hijab Pins",
     "colorCode": "#ffffff",
-    "color": "White",
     "color": "White (Entire wheel)",
-    "category": "Pins",
+    "category": "Hijab Pins",
     "image1": "https://voilechic.ca/cdn/shop/products/White_Pin_Wheel_600x.jpg?v=1571284266",
     "image2": "https://voilechic.ca/cdn/shop/products/White_Pin_Wheel_600x.jpg?v=1571284266",
     "price": 6
@@ -987,8 +986,7 @@
     "kind":"Neck and Chest Covers",
     "colorCode": "#ffffff",
     "color": "White",
-    "color": "White",
-    "category": "Body Covers",
+    "category": "Arm & Neck Covers",
     "image1": "https://voilechic.ca/cdn/shop/files/1500x1500px08_900x.png?v=1697111976",
     "image2": "https://voilechic.ca/cdn/shop/files/1500x1500px08_900x.png?v=1697111976",
     "price": 11
@@ -999,7 +997,7 @@
     "kind":"Neck and Chest Covers",
     "colorCode": "#000000",
     "color": "Black",
-    "category": "Body Covers",
+    "category": "Arm & Neck Covers",
     "image1": "https://voilechic.ca/cdn/shop/files/Black_3_600x.jpg?v=1697111911",
     "image2": "https://voilechic.ca/cdn/shop/files/Black_3_600x.jpg?v=1697111911",
     "price": 11
@@ -1010,7 +1008,7 @@
     "kind":"Arm Covers",
     "colorCode": "#ffffff",
     "color": "White",
-    "category": "Body Covers",
+    "category": "Arm & Neck Covers",
     "image1": "https://voilechic.ca/cdn/shop/files/2_2_900x.jpg?v=1698100783",
     "image2": "https://voilechic.ca/cdn/shop/files/ArmCoverWhite_900x.jpg?v=1698100783",
     "price": 8
@@ -1021,7 +1019,7 @@
     "kind":"Arm Covers",
     "colorCode": "#000000",
     "color": "Black",
-    "category": "Body Covers",
+    "category": "Arm & Neck Covers",
     "image1": "https://voilechic.ca/cdn/shop/files/a257d49d-6ae2-486d-9966-d955812c33c5_900x.jpg?v=1698100742",
     "image2": "https://voilechic.ca/cdn/shop/files/ArmCoverBlack_900x.jpg?v=1698100742",
     "price": 8

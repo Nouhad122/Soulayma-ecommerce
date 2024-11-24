@@ -7,11 +7,13 @@ import './ShopProducts.css';
 
 const ShopProducts = () => {
   const { category, kind } = useParams();
-  const filteredProducts = products.filter(product => product.category === category);
+  const filteredProducts = products.filter(product => product.category === "Arm & Neck Covers" || product.category === "Luxury Bags" || product.category === "Soulayma Accessories"
+    ? product.category === category
+     : product.category === category && product.kind === kind);
   return (
     <div className='shop-products'>
         <div className='products-text'>
-            <h1>{kind}</h1>
+            <h1>{category === "Arm & Neck Covers" || category === "Luxury Bags" || category === "Soulayma Accessories"? category : kind}</h1>
         </div>
       <div className='products-container'>
             {
