@@ -4,56 +4,40 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import './ShopProducts.css';
 
-const ShopAll = ({products, category, page}) => {
+const ShopAll = ({ products, category, page, activeColor }) => {
   const navigate = useNavigate();
 
-  const productsPerPage = window.innerWidth > 1600 ? 25 : 24;  // Updated to show 24 products per page
-  const currentPage = parseInt(page, 10) || 1;
+  const productsPerPage = window.innerWidth > 1600 ? 25 : 24;
+  const currentPage = Math.max(parseInt(page, 10) || 1, 1);
 
-  // Filter products based on category
-  const filteredProducts = products.filter(product => product.category === category);
+  // Filter products based on category and color
+  const filteredProducts = products.filter(product => {
+    const categoryMatch = product.category === category;
+    const colorMatch = activeColor ? product.color === activeColor : true;
+    return categoryMatch && colorMatch;
+  });
 
-  // Calculate the number of pages
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // Get the products for the current page
+  // Get products for the current page
   const startIndex = (currentPage - 1) * productsPerPage;
   const currentProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage);
 
-  // Create pagination links
-  const paginationLinks = [];
-  for (let i = 1; i <= totalPages; i++) {
-    paginationLinks.push(
-      <Link 
-        key={i} 
-        to={`/shop/all/${category}/page/${i}`}
-        className={`pagination-link ${i === currentPage ? 'active' : ''}`}>
-        {i}
-      </Link>
-    );
-  }
-
-  // Handle next and previous buttons
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      navigate(`/shop/all/${category}/page/${currentPage + 1}`);
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      navigate(`/shop/all/${category}/page/${currentPage - 1}`);
-    }
-  };
+  // Handle page navigation
+  const goToPage = (pageNumber) => navigate(`/shop/${category}/page/${pageNumber}`);
 
   return (
     <div className='shop-products'>
       <div className='products-text'>
-            <h1>Shop All {category}</h1>
-        </div>
+        <h1>Shop {category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+      </div>
       <div className='products-container'>
         {currentProducts.map(product => (
-          <Link to={`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`} className='shop-product-link' key={product.id}>
+          <Link
+            to={`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`}
+            className='shop-product-link'
+            key={product.id}
+          >
             <div className='shop-product'>
               <div className='images'>
                 <img className='image1' src={product.image1} alt={product.title} />
@@ -63,11 +47,9 @@ const ShopAll = ({products, category, page}) => {
               <h4>{product.price}$</h4>
               <div className='feedbacks-container'>
                 <div className='feedbacks'>
-                  <FontAwesomeIcon icon={faStar} />
-                  <FontAwesomeIcon icon={faStar} />
-                  <FontAwesomeIcon icon={faStar} />
-                  <FontAwesomeIcon icon={faStar} />
-                  <FontAwesomeIcon icon={faStar} />
+                  {[...Array(5)].map((_, i) => (
+                    <FontAwesomeIcon key={i} icon={faStar} />
+                  ))}
                 </div>
                 <p className='rate'>5.0 <span className='num-of-rates'>(5)</span></p>
               </div>
@@ -76,12 +58,24 @@ const ShopAll = ({products, category, page}) => {
         ))}
       </div>
 
-      {/* Pagination - only show if there are more than 24 products */}
+      {/* Pagination */}
       {filteredProducts.length > productsPerPage && (
         <div className='pagination'>
-          <button onClick={handlePrevPage} disabled={currentPage === 1}>Previous</button>
-          {paginationLinks}
-          <button onClick={handleNextPage} disabled={currentPage === totalPages}>Next</button>
+          <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>
+            Previous
+          </button>
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i + 1}
+              className={i + 1 === currentPage ? 'active' : ''}
+              onClick={() => goToPage(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages}>
+            Next
+          </button>
         </div>
       )}
     </div>

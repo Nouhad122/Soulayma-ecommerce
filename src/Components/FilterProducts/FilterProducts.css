@@ -42,12 +42,15 @@
 }
 .filter-colors .colors-in{
     overflow-y: auto;
-    max-height: 72vh;
+    max-height: 68vh;
     margin-top: 20px;
 }
 .colors-in p{
     color: var(--font-color);
     cursor: pointer;
+}
+.active-color{
+    color: var(--gold-color) !important;
 }
 .colors-in p:hover{
     color: var(--gold-color);
@@ -61,4 +64,33 @@
 .reset-btn:hover{
     border: solid 1px transparent !important;
 }
-
+@media screen and (max-width: 1300px){
+    .filter-products .filter-colors{
+        width: 35vw;
+        right: -70%;
+    }
+    .filter-colors h1{
+        font-size: 2rem;
+    }
+    .filter-products .filter-btn{
+        width: 20vw !important;
+    }
+}
+@media screen and (max-width: 851px){
+    .filter-products .filter-colors{
+        width: 55vw;
+        right: -100%;
+    }
+    .filter-products .filter-btn{
+        width: 30vw !important;
+        font-size: 1rem !important;
+    }
+}
+@media screen and (max-width: 501px){
+    .filter-products .filter-colors{
+        width: 100%;
+    }
+    .filter-products .filter-btn{
+        width: 40vw !important;
+    }
+}
