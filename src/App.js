@@ -10,7 +10,6 @@ import { store } from './redux';
 import LoadingPage from './Components/Secondary-Comps/LoadingPage';
 const Home = lazy(() => import('../src/Pages/Home/Home'));
 const Shop = lazy(() => import('./Pages/Shop/Shop'));
-const Shop2 = lazy(() => import('./Pages/Shop2/Shop2'));
 const Product = lazy(() => import('./Pages/Product/Product'));
 const CartPage = lazy(() => import('./Pages/CartPage/CartPage'));
 const NotMatch = lazy(() => import('./Components/Secondary-Comps/NotMatch'));
@@ -49,8 +48,14 @@ function App() {
                 <div>
                 <Routes>
                   <Route path='/' element= {<Home/>}/>
-                  <Route path='/shop/:category/:kind' element= {<Shop openedFilter = {openedFilter} setOpenedFilter = {setOpenedFilter}/>}/>
-                  <Route path='/shop/all/:category/page/:page' element = {<Shop2 openedFilter = {openedFilter} setOpenedFilter = {setOpenedFilter}/>}/>
+                  <Route 
+                    path='/shop/:category/:kind' 
+                    element={<Shop openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} />} 
+                  />
+                  <Route 
+                    path='/shop/all/:category/page/:page' 
+                    element={<Shop openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} />} 
+                  />
                   <Route path='/shop/product/:category/:kind/:id' element= {<Product openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage}/>}/>
                   <Route path='/cart' element = {<CartPage/>}/>
                   <Route path='*' element= {<NotMatch/>}/>

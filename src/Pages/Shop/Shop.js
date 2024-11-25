@@ -1,17 +1,44 @@
-import React from 'react';
-import ShopProducts from '../../Components/ShopProducts/ShopProducts';
+import React, { useState, useEffect } from 'react';
 import FilterProducts from '../../Components/FilterProducts/FilterProducts';
+import { useParams, useSearchParams } from 'react-router-dom';
 import products from '../../Products/products.json';
-import { useParams } from 'react-router-dom';
+import ShopProducts from '../../Components/ShopProducts/ShopProducts';
 
-const Shop = ({ openedFilter , setOpenedFilter }) => {
-  const { category } = useParams();
+const Shop2 = ({ openedFilter, setOpenedFilter }) => {
+  const { category, page } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeColor, setActiveColor] = useState('');
+
+  const filterColor = searchParams.get('filter');
+
+ useEffect(() => {
+    if (filterColor) {
+      setActiveColor(filterColor);
+      setOpenedFilter(false);
+    }
+  }, [filterColor]);
+
   return (
-    <div className='shopPage'>
-      <FilterProducts category = {category} products={products} openedFilter={openedFilter} setOpenedFilter={setOpenedFilter}/>
-      <ShopProducts/>
+    <div>
+      <FilterProducts
+        category={category}
+        products={products}
+        openedFilter={openedFilter}
+        setOpenedFilter={setOpenedFilter}
+        activeColor={activeColor}
+        setActiveColor={setActiveColor}
+        setSearchParams={setSearchParams}
+      />
+      <ShopProducts
+        category={category}
+        page={page}
+        products={products}
+        activeColor={activeColor}
+        setActiveColor={setActiveColor}
+      />
+      
     </div>
-  )
-}
+  );
+};
 
-export default Shop
+export default Shop2;
