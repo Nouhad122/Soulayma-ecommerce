@@ -1,0 +1,64 @@
+.filter-products{
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    border-top: solid 1px var(--sixth-color);
+    border-bottom: solid 1px var(--sixth-color);
+    margin-top: 20px;
+}
+.filter-products .filter-btn{
+    width: 15vw !important;
+}
+.filter-products .filter-colors{
+    background-color: var(--fifth-color);
+    height: 100%;
+    width: 30vw;
+    position: fixed;
+    top: 0;
+    right: -50%;
+    z-index: 999;
+    padding: 20px;
+    transition: .6s ease;
+}
+.opened-filter-colors{
+    right: 0 !important;
+}
+.filter-colors .filter-title{
+    border-bottom: solid 1px var(--gold-color);
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.filter-colors h1{
+    font-size: 2.5rem;
+    font-family: var(--first-font);
+    color: var(--font-color);
+}
+.filter-x-mark{
+    font-size: 2rem;
+    color: var(--font-color);
+    cursor: pointer;
+}
+.filter-colors .colors-in{
+    overflow-y: auto;
+    max-height: 72vh;
+    margin-top: 20px;
+}
+.colors-in p{
+    color: var(--font-color);
+    cursor: pointer;
+}
+.colors-in p:hover{
+    color: var(--gold-color);
+}
+.reset-btn{
+    margin-top: 20px;
+    width: 100% !important;
+    background-color: transparent !important;
+    border: solid 1px var(--gold-color) !important;
+}
+.reset-btn:hover{
+    border: solid 1px transparent !important;
+}
+

@@ -1,12 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import products from '../../Products/products.json';
+import { Link, useNavigate } from 'react-router-dom';
 import './ShopProducts.css';
 
-const ShopAll = () => {
-  const { category, page } = useParams();  // Capture the page from the URL
+const ShopAll = ({products, category, page}) => {
   const navigate = useNavigate();
 
   const productsPerPage = window.innerWidth > 1600 ? 25 : 24;  // Updated to show 24 products per page
