@@ -6,9 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './ShopProducts.css';
 
-const ShopProducts = ({ openedFilter, setOpenedFilter, activeColor, setActiveColor }) => {
+const ShopProducts = ({ filterColor }) => {
   const { category, kind, page } = useParams();
-  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   
   const productsPerPage = window.innerWidth > 1600 ? 25 : 24;
@@ -19,7 +18,7 @@ const ShopProducts = ({ openedFilter, setOpenedFilter, activeColor, setActiveCol
   const filteredProducts = products.filter(product => {
     const categoryMatch = product.category === category;
     const kindMatch = kind ? product.kind === kind : true;
-    const colorMatch = activeColor ? product.color === activeColor : true;
+    const colorMatch = filterColor ? product.color === filterColor : true;
     return categoryMatch && kindMatch && colorMatch;
   });
 

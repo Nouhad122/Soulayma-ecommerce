@@ -7,13 +7,11 @@ import ShopProducts from '../../Components/ShopProducts/ShopProducts';
 const Shop2 = ({ openedFilter, setOpenedFilter }) => {
   const { category, page } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [activeColor, setActiveColor] = useState('');
 
   const filterColor = searchParams.get('filter');
 
  useEffect(() => {
     if (filterColor) {
-      setActiveColor(filterColor);
       setOpenedFilter(false);
     }
   }, [filterColor]);
@@ -25,16 +23,14 @@ const Shop2 = ({ openedFilter, setOpenedFilter }) => {
         products={products}
         openedFilter={openedFilter}
         setOpenedFilter={setOpenedFilter}
-        activeColor={activeColor}
-        setActiveColor={setActiveColor}
+        filterColor = {filterColor}
         setSearchParams={setSearchParams}
       />
       <ShopProducts
         category={category}
         page={page}
         products={products}
-        activeColor={activeColor}
-        setActiveColor={setActiveColor}
+        filterColor = {filterColor}
       />
       
     </div>

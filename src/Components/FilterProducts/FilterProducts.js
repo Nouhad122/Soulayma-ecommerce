@@ -2,10 +2,10 @@ import React from 'react';
 import './FilterProducts.css';
 import { IoMdClose } from "react-icons/io";
 
-const FilterProducts = ({products, category, openedFilter, setOpenedFilter, activeColor, setActiveColor, setSearchParams}) => {
+const FilterProducts = ({products, category, openedFilter, setOpenedFilter, activeColor, setActiveColor,filterColor, setSearchParams}) => {
     const colorsForFilter = products.filter((product) => product.category === category);
     const filterProductsByColor = (prodColor)=>{
-        setActiveColor(prodColor);
+        filterColor = prodColor;
     }
     
   return (
