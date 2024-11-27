@@ -12,7 +12,7 @@ const Home = lazy(() => import('../src/Pages/Home/Home'));
 const Shop = lazy(() => import('./Pages/Shop/Shop'));
 const Product = lazy(() => import('./Pages/Product/Product'));
 const CartPage = lazy(() => import('./Pages/CartPage/CartPage'));
-const NotMatch = lazy(() => import('./Components/Secondary-Comps/NotMatch'));
+const NoMatch = lazy(() => import('./Components/Secondary-Comps/NoMatch'));
 
 
 function App() {
@@ -59,7 +59,7 @@ function App() {
                   />
                   <Route path='/shop/product/:category/:kind/:id' element= {<Product openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage}/>}/>
                   <Route path='/cart' element = {<CartPage/>}/>
-                  <Route path='*' element= {<NotMatch/>}/>
+                  <Route path='*' element= {<NoMatch/>}/>
                 </Routes>
                 <Footer/>
                 </div>

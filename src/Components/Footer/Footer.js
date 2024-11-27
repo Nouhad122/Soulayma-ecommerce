@@ -41,19 +41,18 @@ const Footer = () => {
     <div className="address-info">
         <h3>Adress</h3>
         <Link className="footer-link">About Us</Link>
-        <Link className="footer-link">Delivery Information</Link>
+        <Link className="footer-link">FAQ</Link>
+        <Link className="footer-link">Shipping</Link>
+        <Link className="footer-link">Returns</Link>
+        <Link className="footer-link">Tutorials</Link>
         <Link className="footer-link">Privacy Policy</Link>
-        <Link className="footer-link">Terms & Conditions</Link>
-        <Link className="footer-link">Contact Us</Link>
     </div>
     <div className="account-info">
         <h3>My Account</h3>
         <Link className="footer-link">Sign In</Link>
         <Link className="footer-link">View Cart</Link>
-        <Link className="footer-link">My Wishlist</Link>
         <Link className="footer-link">Track My Order</Link>
-        <Link className="footer-link">Help</Link>
-        <Link className="footer-link">Order</Link>
+        <Link className="footer-link">Help Center</Link>
     </div>
     <div className="payment-info">
         <h3>Secured Payment Gateways</h3>

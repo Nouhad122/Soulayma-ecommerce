@@ -14,7 +14,7 @@ const ShoppingCart = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-  const savedCart = JSON.parse(localStorage.getItem('cart') || '[]'); // Fix here
+  const savedCart = JSON.parse(localStorage.getItem('cart') || '[]');
   if (savedCart.length > 0) {
     dispatch(setCartFromStorageAction(savedCart));
   }

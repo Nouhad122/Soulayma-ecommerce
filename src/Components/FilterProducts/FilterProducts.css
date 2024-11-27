@@ -1,7 +1,12 @@
 .filter-products{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     border-top: solid 1px var(--sixth-color);
     border-bottom: solid 1px var(--sixth-color);
     margin-top: 20px;
@@ -18,6 +23,8 @@
     right: -50%;
     z-index: 999;
     padding: 20px;
+    -webkit-transition: .6s ease;
+    -o-transition: .6s ease;
     transition: .6s ease;
 }
 .opened-filter-colors{
@@ -26,9 +33,15 @@
 .filter-colors .filter-title{
     border-bottom: solid 1px var(--gold-color);
     padding: 5px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .filter-colors h1{
     font-size: 2.5rem;
