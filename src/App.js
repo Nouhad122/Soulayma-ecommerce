@@ -28,6 +28,7 @@ function App() {
     setOpenedList(false);
     setOpenedCategories({});
     setLoading(true);
+    setOpenedFilter(false);
     const timer = setTimeout(() =>{setLoading(false)},1000);
     return () => {
       clearTimeout(timer);

@@ -40,10 +40,12 @@
     color: var(--font-color);
     cursor: pointer;
 }
-.filter-colors .colors-in{
+.filter-colors .colors-in {
     overflow-y: auto;
     max-height: 68vh;
     margin-top: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-color) var(--first-color);
 }
 .colors-in p{
     color: var(--font-color);

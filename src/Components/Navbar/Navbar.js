@@ -141,8 +141,8 @@ const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategorie
                 >
                     <Link to={`/shop/Hijab Pins/Hijab Pins`} className='navbar-mini-link'>Hijab Pins</Link>
                     <Link to={`/shop/Arm & Neck Covers/Arm & Neck Covers`} className='navbar-mini-link'>Arm & Neck Covers</Link>
-                    <Link to={`/shop/Luxury Bags/Bags`} className='navbar-mini-link'>Luxury Bags</Link>
-                    <Link to={`/shop/Soulayma Accessories/Accessories`} className='navbar-mini-link'>Soulayma Accessories</Link>
+                    <Link to={`/shop/Luxury Bags/Luxury Bags`} className='navbar-mini-link'>Luxury Bags</Link>
+                    <Link to={`/shop/Soulayma Accessories/Soulayma Accessories`} className='navbar-mini-link'>Soulayma Accessories</Link>
                 </div>
               )}
             </div>
@@ -244,7 +244,7 @@ const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategorie
           <FontAwesomeIcon className='scope' onClick={handleFocus} icon={faMagnifyingGlass} />
           <FontAwesomeIcon onClick={() => setOpenedSearch(false)} className='x-search' icon={faXmark}/>
         </div>
-        <FontAwesomeIcon className='scope2' onClick={()=>setOpenedSearch(true)} icon={faMagnifyingGlass} />
+        <FontAwesomeIcon className='scope2' onClick={()=>{setOpenedSearch(true); setOpenedList(false)}} icon={faMagnifyingGlass} />
         <div className='bag-cont'>
           <Link to={'/cart'} className='navbar-mini-link'>
             <FontAwesomeIcon className='shopping-bag' icon={faBagShopping} />

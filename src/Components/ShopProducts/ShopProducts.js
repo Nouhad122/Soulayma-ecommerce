@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
-import FilterProducts from '../../Components/FilterProducts/FilterProducts';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import products from '../../Products/products.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './ShopProducts.css';
 
-const ShopProducts = ({ filterColor }) => {
-  const { category, kind, page } = useParams();
+const ShopProducts = ({ filterColor, category, kind, page }) => {
   const navigate = useNavigate();
-  
-  const productsPerPage = window.innerWidth > 1600 ? 25 : 24;
+
+  const [productsPerPage, setProductsPerPage] = useState(window.innerWidth > 1600 ? 25 : 24);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setProductsPerPage(window.innerWidth > 1600 ? 25 : 24);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const currentPage = Math.max(parseInt(page, 10) || 1, 1);
 
-
-  // Filter products based on category, kind, and color
   const filteredProducts = products.filter(product => {
     const categoryMatch = product.category === category;
     const kindMatch = kind ? product.kind === kind : true;
     const colorMatch = filterColor ? product.color === filterColor : true;
-    return categoryMatch && kindMatch && colorMatch;
+    return product.category === 'Arm & Neck Covers' || product.category === 'Luxury Bags' ||
+    product.category === 'Soulayma Accessories' ? categoryMatch && colorMatch
+    : categoryMatch && kindMatch && colorMatch;
   });
 
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
@@ -34,33 +41,43 @@ const ShopProducts = ({ filterColor }) => {
     <div className='shopPage'>
       <div className='shop-products'>
         <div className='products-text'>
-          <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+          <h1>{kind ? kind : `Shop All ${category}`}</h1>
         </div>
         <div className='products-container'>
           {currentProducts.map(product => (
-            <div key={product.id} className='shop-product'>
-              <div className='images'>
-                <img className='image1' src={product.image1} alt={product.title} />
-                <img className='image2' src={product.image2} alt={product.title} />
-              </div>
-              <h2>{product.title} - {product.color}</h2>
-              <h4>{product.price}$</h4>
-              <div className='feedbacks-container'>
-                <div className='feedbacks'>
-                  {[...Array(5)].map((_, i) => (
-                    <FontAwesomeIcon key={i} icon={faStar} />
-                  ))}
+            <Link
+              key={product.id}
+              to={`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`}
+              className='shop-product-link'
+            >
+              <div className='shop-product'>
+                <div className='images'>
+                  <img className='image1' src={product.image1} alt={product.title} />
+                  <img className='image2' src={product.image2} alt={product.title} />
                 </div>
-                <p className='rate'>5.0 <span className='num-of-rates'>(5)</span></p>
+                <h2>{product.title} - {product.color}</h2>
+                <h4>{product.price}$</h4>
+                <div className='feedbacks-container'>
+                  <div className='feedbacks'>
+                    {[...Array(5)].map((_, i) => (
+                      <FontAwesomeIcon key={i} icon={faStar} />
+                    ))}
+                  </div>
+                  <p className='rate'>5.0 <span className='num-of-rates'>(5)</span></p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* Pagination */}
         {filteredProducts.length > productsPerPage && (
           <div className='pagination'>
-            <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>
+            <button
+              onClick={() => goToPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              aria-label="Go to previous page"
+            >
               Previous
             </button>
             {[...Array(totalPages)].map((_, i) => (
@@ -68,11 +85,16 @@ const ShopProducts = ({ filterColor }) => {
                 key={i + 1}
                 className={i + 1 === currentPage ? 'active' : ''}
                 onClick={() => goToPage(i + 1)}
+                aria-label={`Go to page ${i + 1}`}
               >
                 {i + 1}
               </button>
             ))}
-            <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages}>
+            <button
+              onClick={() => goToPage(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              aria-label="Go to next page"
+            >
               Next
             </button>
           </div>

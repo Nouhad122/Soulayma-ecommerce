@@ -11,6 +11,7 @@
     }
     
 }
+
 @keyframes productsAnimation {
     0%{
         -webkit-transform: translateY(50%);
@@ -49,9 +50,11 @@
 }
 .products-container .shop-product{
     background-color: var(--fifth-color);
+    cursor: pointer;
     -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: 100%;
+    max-width: 300px;
     -webkit-animation: productsAnimation .8s ease;
             animation: productsAnimation .8s ease;
 }

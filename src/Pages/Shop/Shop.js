@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import FilterProducts from '../../Components/FilterProducts/FilterProducts';
 import { useParams, useSearchParams } from 'react-router-dom';
 import products from '../../Products/products.json';
 import ShopProducts from '../../Components/ShopProducts/ShopProducts';
 
-const Shop2 = ({ openedFilter, setOpenedFilter }) => {
-  const { category, page } = useParams();
+const Shop = ({ openedFilter, setOpenedFilter }) => {
+  const { category = '', kind = '', page } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const filterColor = searchParams.get('filter');
@@ -14,13 +14,15 @@ const Shop2 = ({ openedFilter, setOpenedFilter }) => {
     if (filterColor) {
       setOpenedFilter(false);
     }
-  }, [filterColor]);
+  }, [filterColor, setOpenedFilter]);
 
   return (
     <div>
       <FilterProducts
         category={category}
+        kind={kind}
         products={products}
+        page = {page}
         openedFilter={openedFilter}
         setOpenedFilter={setOpenedFilter}
         filterColor = {filterColor}
@@ -29,6 +31,7 @@ const Shop2 = ({ openedFilter, setOpenedFilter }) => {
       <ShopProducts
         category={category}
         page={page}
+        kind={kind}
         products={products}
         filterColor = {filterColor}
       />
@@ -37,4 +40,4 @@ const Shop2 = ({ openedFilter, setOpenedFilter }) => {
   );
 };
 
-export default Shop2;
+export default Shop;
