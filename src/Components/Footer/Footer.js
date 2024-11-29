@@ -40,8 +40,8 @@ const Footer = () => {
     </div>
     <div className="address-info">
         <h3>Adress</h3>
-        <Link className="footer-link">About Us</Link>
-        <Link className="footer-link">FAQ</Link>
+        <Link to={`/about us`} className="footer-link">About Us</Link>
+        <Link to={`/faq`} className="footer-link">FAQ</Link>
         <Link className="footer-link">Shipping</Link>
         <Link className="footer-link">Returns</Link>
         <Link className="footer-link">Tutorials</Link>

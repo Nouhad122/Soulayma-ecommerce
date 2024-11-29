@@ -8,11 +8,29 @@ import ScrollToTop from './Components/Secondary-Comps/ScrollToTop';
 import {Provider} from 'react-redux';
 import { store } from './redux';
 import LoadingPage from './Components/Secondary-Comps/LoadingPage';
+
 const Home = lazy(() => import('../src/Pages/Home/Home'));
 const Shop = lazy(() => import('./Pages/Shop/Shop'));
 const Product = lazy(() => import('./Pages/Product/Product'));
 const CartPage = lazy(() => import('./Pages/CartPage/CartPage'));
 const NoMatch = lazy(() => import('./Components/Secondary-Comps/NoMatch'));
+const AboutPage = lazy(() => import('./Pages/FooterPages/AboutPage'));
+const FAQMain = lazy(() => import('./Pages/FooterPages/FAQMain'));
+const PlacingOrder = lazy(() => import('./Pages/FooterPages/FAQPages/PlacingOrder'));
+const OrderShipping = lazy(() => import('./Pages/FooterPages/FAQPages/OrderShipping'));
+const OrderStatus = lazy(() => import('./Pages/FooterPages/FAQPages/OrderStatus'));
+const OrderTracking = lazy(() => import('./Pages/FooterPages/FAQPages/OrderTracking'));
+const OrderFixing = lazy(() => import('./Pages/FooterPages/FAQPages/OrderFixing'));
+const OrderChanges = lazy(() => import('./Pages/FooterPages/FAQPages/OrderChanges'));
+const GuaranteedSatiscation = lazy(() => import('./Pages/FooterPages/FAQPages/GuaranteedSatiscation'));
+const Stocking = lazy(() => import('./Pages/FooterPages/FAQPages/Stocking'));
+const Currency = lazy(() => import('./Pages/FooterPages/FAQPages/Currency'));
+const FabricCare = lazy(() => import('./Pages/FooterPages/FAQPages/FabricCare'));
+const DifferenceFabric = lazy(() => import('./Pages/FooterPages/FAQPages/DifferenceFabric'));
+const InstantPremium = lazy(() => import('./Pages/FooterPages/FAQPages/InstantPremium'));
+const CustomerService = lazy(() => import('./Pages/FooterPages/FAQPages/CustomerService'));
+const SbRewards = lazy(() => import('./Pages/FooterPages/FAQPages/SbRewards'));
+
 
 
 function App() {
@@ -59,6 +77,22 @@ function App() {
                   />
                   <Route path='/shop/product/:category/:kind/:id' element= {<Product openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage}/>}/>
                   <Route path='/cart' element = {<CartPage/>}/>
+                  <Route path='/about us' element = {<AboutPage/>}/>
+                  <Route path='/faq' element = {<FAQMain/>}/>
+                  <Route path='/faq/placing-order-payment-method' element = {<PlacingOrder/>}/>
+                  <Route path='/faq/order-shipping' element = {<OrderShipping/>}/>
+                  <Route path='/faq/order-status' element = {<OrderStatus/>}/>
+                  <Route path='/faq/order-tracking' element = {<OrderTracking/>}/>
+                  <Route path='/faq/order-changes-cancellation' element = {<OrderChanges/>}/>
+                  <Route path='/faq/order-error-fixing' element = {<OrderFixing/>}/>
+                  <Route path='/faq/guaranteed-satisfaction-returns-refund' element = {<GuaranteedSatiscation/>}/>
+                  <Route path='/faq/stocking-restocking' element = {<Stocking/>}/>
+                  <Route path='/faq/currency-conversion' element = {<Currency/>}/>
+                  <Route path='/faq/fabric-care-stain-removal' element = {<FabricCare/>}/>
+                  <Route path='/faq/difference-between-fabric-types' element = {<DifferenceFabric/>}/>
+                  <Route path='/faq/instant-pre-sewn-hijabs' element = {<InstantPremium/>}/>
+                  <Route path='/faq/customer-service-emails' element = {<CustomerService/>}/>
+                  <Route path='/faq/sb-rewards-program' element = {<SbRewards/>}/>
                   <Route path='*' element= {<NoMatch/>}/>
                 </Routes>
                 <Footer/>
