@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
       If you choose a direct payment gateway to complete your purchase, then Shopify stores your credit card data. It is encrypted through the Payment Card Industry Data Security Standard (PCI-DSS). Your purchase transaction data is stored only as long as is necessary to complete your purchase transaction. After that is complete, your purchase transaction information is deleted.
     </p>
     <p>
-      For more insight, you may also want to read Shopify’s <a href="https://www.shopify.com/legal/terms" target="_blank">Terms of Service</a> or <a href="https://www.shopify.com/legal/privacy" target="_blank">Privacy Statement</a>.
+      For more insight, you may also want to read Shopify’s Terms of Service or Privacy Statement.
     </p>
   </section>
 
