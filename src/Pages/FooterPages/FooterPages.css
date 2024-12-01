@@ -2,6 +2,13 @@
     min-height: 70vh;
 }
 
+.text-container h1{
+    text-align: center;
+    margin: 20px 0;
+}
+.text-container h3{
+    margin: 20px;
+}
 
 section {
     margin: 40px 20px;

@@ -16,6 +16,10 @@ const CartPage = lazy(() => import('./Pages/CartPage/CartPage'));
 const NoMatch = lazy(() => import('./Components/Secondary-Comps/NoMatch'));
 const AboutPage = lazy(() => import('./Pages/FooterPages/AboutPage'));
 const FAQMain = lazy(() => import('./Pages/FooterPages/FAQMain'));
+const Shipping = lazy(() => import('./Pages/FooterPages/Shipping'));
+const Returns = lazy(() => import('./Pages/FooterPages/Returns'));
+const PrivacyPolicy = lazy(() => import('./Pages/FooterPages/PrivacyPolicy'));
+const Tutorials = lazy(() => import('./Pages/FooterPages/Tutorials'));
 const PlacingOrder = lazy(() => import('./Pages/FooterPages/FAQPages/PlacingOrder'));
 const OrderShipping = lazy(() => import('./Pages/FooterPages/FAQPages/OrderShipping'));
 const OrderStatus = lazy(() => import('./Pages/FooterPages/FAQPages/OrderStatus'));
@@ -93,6 +97,10 @@ function App() {
                   <Route path='/faq/instant-pre-sewn-hijabs' element = {<InstantPremium/>}/>
                   <Route path='/faq/customer-service-emails' element = {<CustomerService/>}/>
                   <Route path='/faq/sb-rewards-program' element = {<SbRewards/>}/>
+                  <Route path='/shipping' element = {<Shipping/>}/>
+                  <Route path='/returns' element = {<Returns/>}/>
+                  <Route path='/tutorials' element = {<Tutorials/>}/>
+                  <Route path='/privacy-policy' element = {<PrivacyPolicy/>}/>
                   <Route path='*' element= {<NoMatch/>}/>
                 </Routes>
                 <Footer/>
