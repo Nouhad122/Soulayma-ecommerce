@@ -34,7 +34,7 @@ const DifferenceFabric = lazy(() => import('./Pages/FooterPages/FAQPages/Differe
 const InstantPremium = lazy(() => import('./Pages/FooterPages/FAQPages/InstantPremium'));
 const CustomerService = lazy(() => import('./Pages/FooterPages/FAQPages/CustomerService'));
 const SbRewards = lazy(() => import('./Pages/FooterPages/FAQPages/SbRewards'));
-
+const SignIn =  lazy(() => import('./Pages/RegistrationPages/SignIn'));
 
 
 function App() {
@@ -101,6 +101,7 @@ function App() {
                   <Route path='/returns' element = {<Returns/>}/>
                   <Route path='/tutorials' element = {<Tutorials/>}/>
                   <Route path='/privacy-policy' element = {<PrivacyPolicy/>}/>
+                  <Route path='/sign in' element= {<SignIn/>}/>
                   <Route path='*' element= {<NoMatch/>}/>
                 </Routes>
                 <Footer/>
