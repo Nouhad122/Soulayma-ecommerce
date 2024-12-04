@@ -10,8 +10,9 @@
     display: flex;
 }
 .login-signup-form img{
-    width: 25vw;
+    width: 30vw;
 }
+
 .login-signup-form .form{
     padding: 30px;
     position: relative;
@@ -22,6 +23,12 @@
     font-size: 2.2rem;
     font-family: var(--first-font);
     color: var(--gold-color);
+}
+.one-input-wrapper{
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-bottom: 20px;
 }
 .login-signup-form input{
     width: 30vw;
@@ -44,8 +51,13 @@
     gap: 7px;
 }
 .one-input-wrapper .error-message{
+    font-size: .8rem;
     margin-top: 10px;
-    color: red;
+    color: rgb(235, 66, 66);
+    max-width: 600px;
+    position: absolute;
+    bottom: -35%;
+    left: 0;
 }
 
 .one-input-wrapper .form-icons svg{
@@ -110,9 +122,9 @@
     font-weight: 200;
   }
   
-  @media screen and (max-width: 1025px){
+  @media screen and (max-width: 1125px){
     .login-signup-form img{
-        width: 30vw;
+        width: 36vw;
     }
     .login-signup-form input{
         width: 30vw;
@@ -130,7 +142,7 @@
         font-size: 1.1rem !important;
     }
   }
-  @media screen and (max-width: 764px){
+  @media screen and (max-width: 907px){
     .login-signup-form img{
         width: 45vw;
     }
@@ -138,7 +150,7 @@
         width: 40vw;
     }
   }
-  @media screen and (max-width: 554px){
+  @media screen and (max-width: 670px){
     .login-signup-form img{
         display: none;
     }

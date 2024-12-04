@@ -35,7 +35,7 @@ const InstantPremium = lazy(() => import('./Pages/FooterPages/FAQPages/InstantPr
 const CustomerService = lazy(() => import('./Pages/FooterPages/FAQPages/CustomerService'));
 const SbRewards = lazy(() => import('./Pages/FooterPages/FAQPages/SbRewards'));
 const SignIn =  lazy(() => import('./Pages/RegistrationPages/SignIn'));
-
+const SignUp =  lazy(() => import('./Pages/RegistrationPages/SignUp'));
 
 function App() {
   const [openedList, setOpenedList] = useState(false);
@@ -102,6 +102,7 @@ function App() {
                   <Route path='/tutorials' element = {<Tutorials/>}/>
                   <Route path='/privacy-policy' element = {<PrivacyPolicy/>}/>
                   <Route path='/sign in' element= {<SignIn/>}/>
+                  <Route path='/sign up' element= {<SignUp/>}/>
                   <Route path='*' element= {<NoMatch/>}/>
                 </Routes>
                 <Footer/>

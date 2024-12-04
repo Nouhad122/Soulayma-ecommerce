@@ -73,7 +73,7 @@ const SignIn = () => {
                     </div>
 
                 </div>
-                <p className='switch-mode'>Don't have an account? <Link className='form-link'>Sign Up</Link></p>
+                <p className='switch-mode'>Don't have an account? <Link to={`/sign up`} className='form-link'>Sign Up</Link></p>
                 <button className="custom-btn btn-15 regist-btn">Sign In</button>
             </form>
         </div>
