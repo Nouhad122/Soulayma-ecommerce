@@ -46,6 +46,11 @@ function App() {
 
   const location = useLocation();
 
+  const handleFocus = (inpRef) => {
+    console.log(inpRef);
+    inpRef?.current?.focus();
+  };
+
   useEffect(() => {
     setOpenedList(false);
     setOpenedCategories({});
@@ -101,8 +106,8 @@ function App() {
                   <Route path='/returns' element = {<Returns/>}/>
                   <Route path='/tutorials' element = {<Tutorials/>}/>
                   <Route path='/privacy-policy' element = {<PrivacyPolicy/>}/>
-                  <Route path='/sign in' element= {<SignIn/>}/>
-                  <Route path='/sign up' element= {<SignUp/>}/>
+                  <Route path='/sign-in' element= {<SignIn handleFocus={handleFocus}/>}/>
+                  <Route path='/sign-up' element= {<SignUp handleFocus={handleFocus}/>}/>
                   <Route path='*' element= {<NoMatch/>}/>
                 </Routes>
                 <Footer/>
