@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faCircleCheck, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { addToCartAction } from '../../redux/actions/cartActions';
@@ -15,32 +15,38 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) =>
 
     const navigate = useNavigate();
 
-    const handlePointClick = (point) => {
-    setActivePoint(point); 
-    if (point === 'point1') {
-        point1Ref.current.scrollIntoView({ behavior: 'smooth' });
-      }     
-    else if (point === 'point2') {
-        point2Ref.current.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    const handlePointClick = useCallback((point) => {
+        setActivePoint(point);
+        if (point === 'point1') {
+            point1Ref.current.scrollIntoView({ behavior: 'smooth' });
+        } else if (point === 'point2') {
+            point2Ref.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+    
 
     useEffect(() => {
+        let timeout;
         const handleScroll = () => {
-          if (productImagesRef.current.scrollLeft > 350) {
-            setActivePoint('point2');
-          } else {
-            setActivePoint('point1');
-          }
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                if (productImagesRef.current.scrollLeft > 350) {
+                    setActivePoint('point2');
+                } else {
+                    setActivePoint('point1');
+                }
+            }, 100);
         };
     
         const productImagesDiv = productImagesRef.current;
         productImagesDiv.addEventListener('scroll', handleScroll);
     
         return () => {
-          productImagesDiv.removeEventListener('scroll', handleScroll);
+            productImagesDiv.removeEventListener('scroll', handleScroll);
+            clearTimeout(timeout);
         };
-      }, []);
+    }, []);
+    
 
     useEffect(() => {
         const handleResize = () => {
@@ -52,7 +58,7 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) =>
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [handlePointClick]);
     
 
     const [productsSpecifics, setProductsSpecifics] = useState([
