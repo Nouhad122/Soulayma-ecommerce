@@ -1,16 +1,14 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import './Navbar.css';
 import logo from '../../assets/S-logo.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBagShopping, faMagnifyingGlass, faBars, faXmark, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faBars, faXmark, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import Header from './Header';
 import { useSelector } from 'react-redux';
+import SearchInput from './SearchInput';
 
-const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategories}) => {
-  const [inpValue, setInpValue] = useState('');
-  const [openedSearch, setOpenedSearch] = useState(false);
-  const searchRef = useRef(null);
+const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategories, inpValue, setInpValue}) => {
   const cart = useSelector(state => state.cart);
 
   const calculateCartLength = (cartItems) => {
@@ -36,10 +34,6 @@ const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategorie
 
     return () => window.removeEventListener('resize', handleResize);
   }, [setOpenedList]);
-
-  const handleFocus = () =>{
-    searchRef.current.focus();
-  }
 
   const handleLinkClick = (linkName) => {
     setOpenedCategories((prevOpenedCategories) => ({
@@ -235,16 +229,7 @@ const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategorie
       </div>
 
       <div className='right-side'>
-        <div className={`nav-input ${openedSearch ? '' : 'closed-search'}`}>
-          <input
-            placeholder='Search For Item...'
-            value={inpValue} ref={searchRef}
-            onChange={(e) => setInpValue(e.target.value)}
-          />
-          <FontAwesomeIcon className='scope' onClick={handleFocus} icon={faMagnifyingGlass} />
-          <FontAwesomeIcon onClick={() => setOpenedSearch(false)} className='x-search' icon={faXmark}/>
-        </div>
-        <FontAwesomeIcon className='scope2' onClick={()=>{setOpenedSearch(true); setOpenedList(false)}} icon={faMagnifyingGlass} />
+          <SearchInput setOpenedList={setOpenedList} inpValue={inpValue} setInpValue={setInpValue}/>
         <div className='bag-cont'>
           <Link to={'/cart'} className='navbar-mini-link'>
             <FontAwesomeIcon className='shopping-bag' icon={faBagShopping} />

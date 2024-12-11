@@ -1,13 +1,14 @@
+// src/components/ShopProducts.js
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import products from '../../Products/products.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Pagination from '../../utils/Pagination';
 import './ShopProducts.css';
 
 const ShopProducts = ({ filterColor, category, kind, page }) => {
   const navigate = useNavigate();
-
   const [productsPerPage, setProductsPerPage] = useState(window.innerWidth > 1600 ? 25 : 24);
 
   useEffect(() => {
@@ -70,34 +71,13 @@ const ShopProducts = ({ filterColor, category, kind, page }) => {
           ))}
         </div>
 
-        {/* Pagination */}
+        {/* Pagination Component */}
         {filteredProducts.length > productsPerPage && (
-          <div className='pagination'>
-            <button
-              onClick={() => goToPage(currentPage - 1)}
-              disabled={currentPage === 1}
-              aria-label="Go to previous page"
-            >
-              Previous
-            </button>
-            {[...Array(totalPages)].map((_, i) => (
-              <button
-                key={i + 1}
-                className={i + 1 === currentPage ? 'active' : ''}
-                onClick={() => goToPage(i + 1)}
-                aria-label={`Go to page ${i + 1}`}
-              >
-                {i + 1}
-              </button>
-            ))}
-            <button
-              onClick={() => goToPage(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              aria-label="Go to next page"
-            >
-              Next
-            </button>
-          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={goToPage}
+          />
         )}
       </div>
     </div>

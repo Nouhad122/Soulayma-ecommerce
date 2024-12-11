@@ -147,6 +147,15 @@
     margin: 3px;
     font-size: .9rem;
 }
+.searched-products{
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 800;
+    padding: 10% 0 3% 0;
+    width: 100%;
+}
   
 @media screen and (max-width: 1250px){
     .shop-products .products-container{

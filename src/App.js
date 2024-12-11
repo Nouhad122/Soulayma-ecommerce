@@ -8,6 +8,7 @@ import ScrollToTop from './Components/Secondary-Comps/ScrollToTop';
 import {Provider} from 'react-redux';
 import { store } from './redux';
 import LoadingPage from './Components/Secondary-Comps/LoadingPage';
+import SearchedProducts from './Components/SearchProducts/SearchedProducts';
 
 const Home = lazy(() => import('../src/Pages/Home/Home'));
 const Shop = lazy(() => import('./Pages/Shop/Shop'));
@@ -43,6 +44,7 @@ function App() {
   const [openedCategories, setOpenedCategories] = useState({});
   const [loading, setLoading] = useState(true);
   const [openedFullImage, setOpenedFullImage] = useState({isOpen:false, image:1});
+  const [inpValue, setInpValue] = useState('');
 
   const location = useLocation();
 
@@ -66,7 +68,8 @@ function App() {
     <Provider store={store}>
         <div className={`App ${openedList || openedFullImage.isOpen || openedFilter ? 'no-scrolling' : ''}`}>
               <div onClick={() => {setOpenedList(false); setOpenedFilter(false)}} className={`blur-cover ${!(openedList || openedFilter) ? 'hidden-blur' : ''}`}></div>
-              <Navbar openedList = {openedList} setOpenedList={setOpenedList} openedCategories={openedCategories} setOpenedCategories={setOpenedCategories}/>
+              <Navbar openedList = {openedList} setOpenedList={setOpenedList} openedCategories={openedCategories} setOpenedCategories={setOpenedCategories} inpValue={inpValue} setInpValue={setInpValue}/>
+              {inpValue && <SearchedProducts searchInput={inpValue}/>}
               <ScrollToTop location = {location}/>
               <Suspense>
             {
