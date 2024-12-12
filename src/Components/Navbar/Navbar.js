@@ -8,7 +8,7 @@ import Header from './Header';
 import { useSelector } from 'react-redux';
 import SearchInput from './SearchInput';
 
-const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategories, inpValue, setInpValue}) => {
+const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategories, inpValue, setInpValue, searchRef}) => {
   const cart = useSelector(state => state.cart);
 
   const calculateCartLength = (cartItems) => {
@@ -229,7 +229,7 @@ const Navbar = ({openedList, setOpenedList, openedCategories, setOpenedCategorie
       </div>
 
       <div className='right-side'>
-          <SearchInput setOpenedList={setOpenedList} inpValue={inpValue} setInpValue={setInpValue}/>
+          <SearchInput setOpenedList={setOpenedList} inpValue={inpValue} setInpValue={setInpValue} searchRef={searchRef}/>
         <div className='bag-cont'>
           <Link to={'/cart'} className='navbar-mini-link'>
             <FontAwesomeIcon className='shopping-bag' icon={faBagShopping} />

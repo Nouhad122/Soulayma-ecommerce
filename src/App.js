@@ -1,11 +1,11 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Routes, Route, useLocation  } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import ScrollToTop from './Components/Secondary-Comps/ScrollToTop';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import { store } from './redux';
 import LoadingPage from './Components/Secondary-Comps/LoadingPage';
 import SearchedProducts from './Components/SearchProducts/SearchedProducts';
@@ -35,91 +35,84 @@ const DifferenceFabric = lazy(() => import('./Pages/FooterPages/FAQPages/Differe
 const InstantPremium = lazy(() => import('./Pages/FooterPages/FAQPages/InstantPremium'));
 const CustomerService = lazy(() => import('./Pages/FooterPages/FAQPages/CustomerService'));
 const SbRewards = lazy(() => import('./Pages/FooterPages/FAQPages/SbRewards'));
-const SignIn =  lazy(() => import('./Pages/RegistrationPages/SignIn'));
-const SignUp =  lazy(() => import('./Pages/RegistrationPages/SignUp'));
+const SignIn = lazy(() => import('./Pages/RegistrationPages/SignIn'));
+const SignUp = lazy(() => import('./Pages/RegistrationPages/SignUp'));
 
 function App() {
   const [openedList, setOpenedList] = useState(false);
   const [openedFilter, setOpenedFilter] = useState(false);
   const [openedCategories, setOpenedCategories] = useState({});
   const [loading, setLoading] = useState(true);
-  const [openedFullImage, setOpenedFullImage] = useState({isOpen:false, image:1});
+  const [openedFullImage, setOpenedFullImage] = useState({ isOpen: false, image: 1 });
   const [inpValue, setInpValue] = useState('');
 
   const location = useLocation();
 
   const handleFocus = (inpRef) => {
-    console.log(inpRef);
     inpRef?.current?.focus();
   };
 
   useEffect(() => {
+    setInpValue('');
     setOpenedList(false);
     setOpenedCategories({});
     setLoading(true);
     setOpenedFilter(false);
-    const timer = setTimeout(() =>{setLoading(false)},1000);
+    const timer = setTimeout(() => { setLoading(false) }, 1000);
     return () => {
       clearTimeout(timer);
     };
-  }, [location],[]);
-  
+  }, [location]);
+
   return (
     <Provider store={store}>
-        <div className={`App ${openedList || openedFullImage.isOpen || openedFilter ? 'no-scrolling' : ''}`}>
-              <div onClick={() => {setOpenedList(false); setOpenedFilter(false)}} className={`blur-cover ${!(openedList || openedFilter) ? 'hidden-blur' : ''}`}></div>
-              <Navbar openedList = {openedList} setOpenedList={setOpenedList} openedCategories={openedCategories} setOpenedCategories={setOpenedCategories} inpValue={inpValue} setInpValue={setInpValue}/>
-              {inpValue && <SearchedProducts searchInput={inpValue}/>}
-              <ScrollToTop location = {location}/>
-              <Suspense>
-            {
+      <div className={`App ${openedList || openedFullImage.isOpen || openedFilter || inpValue ? 'no-scrolling' : ''}`}>
+        <div onClick={() => { setOpenedList(false); setOpenedFilter(false) }} className={`blur-cover ${!(openedList || openedFilter) ? 'hidden-blur' : ''}`}></div>
+        <Navbar openedList={openedList} setOpenedList={setOpenedList} openedCategories={openedCategories} setOpenedCategories={setOpenedCategories} inpValue={inpValue} setInpValue={setInpValue} />
+        {inpValue && <SearchedProducts searchInput={inpValue} />}
+        <ScrollToTop location={location} />
+        <Suspense>
+          {
             loading ?
-              <LoadingPage/>
-              :(
+              <LoadingPage />
+              : (
                 <div>
-                <Routes>
-                  <Route path='/' element= {<Home/>}/>
-                  <Route 
-                    path='/shop/:category/:kind' 
-                    element={<Shop openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} />} 
-                  />
-                  <Route 
-                    path='/shop/all/:category/page/:page' 
-                    element={<Shop openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} />} 
-                  />
-                  <Route path='/shop/product/:category/:kind/:id' element= {<Product openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage}/>}/>
-                  <Route path='/cart' element = {<CartPage/>}/>
-                  <Route path='/about us' element = {<AboutPage/>}/>
-                  <Route path='/faq' element = {<FAQMain/>}/>
-                  <Route path='/faq/placing-order-payment-method' element = {<PlacingOrder/>}/>
-                  <Route path='/faq/order-shipping' element = {<OrderShipping/>}/>
-                  <Route path='/faq/order-status' element = {<OrderStatus/>}/>
-                  <Route path='/faq/order-tracking' element = {<OrderTracking/>}/>
-                  <Route path='/faq/order-changes-cancellation' element = {<OrderChanges/>}/>
-                  <Route path='/faq/order-error-fixing' element = {<OrderFixing/>}/>
-                  <Route path='/faq/guaranteed-satisfaction-returns-refund' element = {<GuaranteedSatiscation/>}/>
-                  <Route path='/faq/stocking-restocking' element = {<Stocking/>}/>
-                  <Route path='/faq/currency-conversion' element = {<Currency/>}/>
-                  <Route path='/faq/fabric-care-stain-removal' element = {<FabricCare/>}/>
-                  <Route path='/faq/difference-between-fabric-types' element = {<DifferenceFabric/>}/>
-                  <Route path='/faq/instant-pre-sewn-hijabs' element = {<InstantPremium/>}/>
-                  <Route path='/faq/customer-service-emails' element = {<CustomerService/>}/>
-                  <Route path='/faq/sb-rewards-program' element = {<SbRewards/>}/>
-                  <Route path='/shipping' element = {<Shipping/>}/>
-                  <Route path='/returns' element = {<Returns/>}/>
-                  <Route path='/tutorials' element = {<Tutorials/>}/>
-                  <Route path='/privacy-policy' element = {<PrivacyPolicy/>}/>
-                  <Route path='/sign-in' element= {<SignIn handleFocus={handleFocus}/>}/>
-                  <Route path='/sign-up' element= {<SignUp handleFocus={handleFocus}/>}/>
-                  <Route path='*' element= {<NoMatch/>}/>
-                </Routes>
-                <Footer/>
+                  <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/shop/:category/:kind' element={<Shop openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} />} />
+                    <Route path='/shop/all/:category/page/:page' element={<Shop openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} />} />
+                    <Route path='/shop/product/:category/:kind/:id' element={<Product openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage} />} />
+                    <Route path='/cart' element={<CartPage />} />
+                    <Route path='/about us' element={<AboutPage />} />
+                    <Route path='/faq' element={<FAQMain />} />
+                    <Route path='/faq/placing-order-payment-method' element = {<PlacingOrder/>}/>
+                    <Route path='/faq/order-shipping' element = {<OrderShipping/>}/>
+                    <Route path='/faq/order-status' element = {<OrderStatus/>}/>
+                    <Route path='/faq/order-tracking' element = {<OrderTracking/>}/>
+                    <Route path='/faq/order-changes-cancellation' element = {<OrderChanges/>}/>
+                    <Route path='/faq/order-error-fixing' element = {<OrderFixing/>}/>
+                    <Route path='/faq/guaranteed-satisfaction-returns-refund' element = {<GuaranteedSatiscation/>}/>
+                    <Route path='/faq/stocking-restocking' element = {<Stocking/>}/>
+                    <Route path='/faq/currency-conversion' element = {<Currency/>}/>
+                    <Route path='/faq/fabric-care-stain-removal' element = {<FabricCare/>}/>
+                    <Route path='/faq/difference-between-fabric-types' element = {<DifferenceFabric/>}/>
+                    <Route path='/faq/instant-pre-sewn-hijabs' element = {<InstantPremium/>}/>
+                    <Route path='/faq/customer-service-emails' element = {<CustomerService/>}/>
+                    <Route path='/faq/sb-rewards-program' element = {<SbRewards/>}/>
+                    <Route path='/shipping' element = {<Shipping/>}/>
+                    <Route path='/returns' element = {<Returns/>}/>
+                    <Route path='/tutorials' element = {<Tutorials/>}/>
+                    <Route path='/privacy-policy' element = {<PrivacyPolicy/>}/>
+                    <Route path='/sign-in' element={<SignIn handleFocus={handleFocus} />} />
+                    <Route path='/sign-up' element={<SignUp handleFocus={handleFocus} />} />
+                    <Route path='*' element={<NoMatch />} />
+                  </Routes>
+                  <Footer />
                 </div>
-             )
-             
-            }
-              </Suspense>
-          </div>
+              )
+          }
+        </Suspense>
+      </div>
     </Provider>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Components/ShopProducts/ShopProducts.css';
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const handlePrevClick = () => {
@@ -22,7 +23,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       {[...Array(totalPages)].map((_, i) => (
         <button
           key={i + 1}
-          className={i + 1 === currentPage ? 'active' : ''}
+          className={i + 1 === currentPage ? 'pagination-link active' : ''}
           onClick={() => handlePageClick(i + 1)}
         >
           {i + 1}
