@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux';
 import LoadingPage from './Components/Secondary-Comps/LoadingPage';
 import SearchedProducts from './Components/SearchProducts/SearchedProducts';
+import ChatBotPage from './Pages/ChatBotPage/ChatBotPage';
 
 const Home = lazy(() => import('../src/Pages/Home/Home'));
 const Shop = lazy(() => import('./Pages/Shop/Shop'));
@@ -108,6 +109,7 @@ function App() {
                     <Route path='*' element={<NoMatch />} />
                   </Routes>
                   <Footer />
+                  <ChatBotPage />
                 </div>
               )
           }
