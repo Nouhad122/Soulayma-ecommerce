@@ -5,10 +5,11 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { MdSend } from "react-icons/md";
 import ChatSuggs from './ChatSuggs';
 
-const ChatBox = () => {
+const ChatBox = ({ onMessageChosen }) => {
   return (
     <div className={classes.chatbotBox}>
-            <ChatSuggs />
+      <h2>Hello, how can we help you?</h2>
+            <ChatSuggs onMessageChosen={onMessageChosen}/>
             <div className={classes.soulaymaSupport}>
                 <img src={logo} alt='soulayma boutique logo'/>
                 <div className={classes.textSupport}>

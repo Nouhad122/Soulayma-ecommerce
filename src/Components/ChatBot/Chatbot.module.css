@@ -1,6 +1,6 @@
 .chatbot{
     background-color: var(--fifth-color);
-    width: 360px;
+    width: 420px;
     padding: 20px 20px;
     position: fixed;
     right: 20px;
@@ -9,10 +9,7 @@
     height: 70vh;
     overflow-y: auto;
 }
-.chatbotBox{
-    background-color: red;
-}
-.chatbot h2{
+.chatbotBox h2{
     font-size: 1.6rem;
     color: var(--gold-color);
     font-family: var(--first-font);
@@ -100,14 +97,45 @@
     margin: 7px 0 0 7px;
 }
 .chatMessages{
-    background-color: blue;
+    background-color: var(--font-color);
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+.chatMessages svg{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.chatMessages .messageDate{
+    font-size: .8rem;
+    color: rgb(103, 102, 102);
+    margin-top: 20px;
+}
+.chatMessages .customerMessage{
+    align-self: flex-end;
+    padding: 15px 20px;
+    background-color: var(--fifth-color);
+    color: var(--font-color);
+    font-size: .9rem;
+    white-space: pre-wrap;
+    
 }
 .chatMessages .supportBot{
-    background-color: pink;
     display: flex;
     gap: 10px;
     align-items: center;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 .supportBot img{
     width: 45px;
@@ -115,6 +143,13 @@
 }
 .supportBot h6{
     font-size: .9rem;
+}
+.chatMessages .serviceMessage{
+    align-self: flex-start;
+    padding: 15px 20px;
+    font-size: .9rem;
+    background-color: rgba(165, 165, 165, 0.263);
+    white-space: pre-wrap;
 }
 
 @media screen and (max-width: 1270px){

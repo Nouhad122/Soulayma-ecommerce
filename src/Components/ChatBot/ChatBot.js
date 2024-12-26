@@ -4,15 +4,18 @@ import ChatBox from './ChatBox';
 import ChatMessages from './ChatMessages';
 
 
-const ChatBot = ({chatOpen}) => {
+const ChatBot = ({chatOpen, chatMessages, onMessageChosen, onCloseChatMessages}) => {
   return(
     <>
     {
     chatOpen ?
         <div className={classes.chatbot}>
-          <h2>Hello, how can we help you?</h2>
-          <ChatBox />
-          <ChatMessages />
+          {
+            chatMessages.opened ?
+              <ChatMessages onCloseChatMessages={onCloseChatMessages} chatMessages={chatMessages}/>:
+              <ChatBox onMessageChosen={onMessageChosen}/>
+          }
+          
         </div> :
         null 
     }
